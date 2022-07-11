@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  mongodb_service:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=repairx-spx2-db
+      - MONGO_INITDB_ROOT_USERNAME=dev
+      - MONGO_INITDB_ROOT_PASSWORD=12345
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - 27017:27017
