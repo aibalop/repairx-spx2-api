@@ -2,12 +2,12 @@ import jsonwebtoken from 'jsonwebtoken';
 import config from './config.util.js';
 
 const sign = (payload) => {
-    return jsonwebtoken.sign(payload, config.app.secretKey);
+    return jsonwebtoken.sign(payload, config.api.secretKey);
 };
 
 const verify = (token) => {
     try {
-        return jsonwebtoken.verify(token, config.app.secretKey);
+        return jsonwebtoken.verify(token, config.api.secretKey);
     } catch (error) {
 
         if (error.name === 'TokenExpiredError') {
