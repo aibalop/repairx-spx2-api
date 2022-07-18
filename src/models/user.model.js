@@ -1,14 +1,18 @@
 import mongoose from 'mongoose';
+import mongooseHidden from 'mongoose-hidden';
 import hashUtil from '../utils/hash.util.js';
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'] },
     lastName: { type: String, required: [true, 'Apellido es requerido'] },
     username: { type: String, required: [true, 'Username es requerido'], unique: true },
-    password: { type: String, required: [true, 'Contraseña es requerida'] },
+    password: { type: String, required: [true, 'Contraseña es requerida'], hide: true },
 }, {
     timestamps: true,
+    collection: 'users'
 });
+
+userSchema.plugin(mongooseHidden());
 
 userSchema.pre('save', function (next) {
     if (this.password) {
@@ -26,6 +30,6 @@ userSchema.post('save', function (error, doc, next) {
     }
 });
 
-const User = mongoose.model('User', userSchema, 'users');
+const User = mongoose.model('User', userSchema);
 
 export default User;
