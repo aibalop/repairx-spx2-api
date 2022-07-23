@@ -11,16 +11,20 @@ const signIn = async (req, res) => {
         const user = await usersService.getByUsername(username);
 
         if (!user) {
-            return res.status(StatusCodes.NOT_FOUND).json({ message: 'No se encontro el usuario: ' + username });
+            return res.status(StatusCodes.NOT_FOUND).json({ message: `No se encontro el usuario: ${username}` });
         }
 
         if (!hashUtil.compare(password, user.password)) {
-            return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Contraseña equivocada' });
+            return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Contraseña incorrecta' });
         }
 
-        const userPayload = user.toObject();
-
-        delete userPayload['password'];
+        const userPayload = {
+            _id: user._id,
+            name: user.name,
+            lastName: user.lastName,
+            username: user.username,
+            fullName: `${user.name} ${user.lastName}`,
+        };
 
         const token = jwtUtil.sign(userPayload);
 

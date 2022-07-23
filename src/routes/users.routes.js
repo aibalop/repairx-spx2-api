@@ -3,13 +3,13 @@ import usersController from '../controllers/users.controller.js';
 import jwtRequired from '../middlewares/jwt-required.middleware.js';
 
 const router = express.Router();
-const prefix = 'users';
+const resource = 'users';
 
-router.route(`/${prefix}`)
+router.route(`/${resource}`)
     .get(jwtRequired, usersController.getAll)
     .post(usersController.create);
 
-router.route(`/${prefix}/:userId/conversations`)
+router.route(`/${resource}/:userId/conversations`)
     .get(jwtRequired, usersController.getAllConversations)
     .post(jwtRequired, usersController.createConversation);
 

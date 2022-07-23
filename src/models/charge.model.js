@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 import slugify from 'slugify';
-import mongoose_delete from 'mongoose-delete';
+import softDelete from 'mongoose-delete';
+import paginate from 'mongoose-paginate-v2';
 
 const chargeSchema = new mongoose.Schema({
     name: { type: String, trim: true, require: [true, 'Nombre del cargo es requerido'], uppercase: true },
-    slug: { type: String, require: [true, 'Slug es requerido'], index: true },
+    slug: { type: String, require: [true, 'Slug es requerido'], lowercase: true, index: true },
     description: { type: String, trim: true },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
@@ -13,7 +14,8 @@ const chargeSchema = new mongoose.Schema({
     collection: 'charges'
 });
 
-chargeSchema.plugin(mongoose_delete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+chargeSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+chargeSchema.plugin(paginate);
 
 chargeSchema.pre('save', async function (next) {
 

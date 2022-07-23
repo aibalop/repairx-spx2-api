@@ -16,6 +16,14 @@ const jwtRequired = (req, res, next) => {
 
         req.payload = decode;
 
+        if (req.method === 'POST') {
+            req.body.createdBy = decode._id;
+        }
+
+        if (req.method === 'PUT' || req.method === 'PATCH') {
+            req.body.updatedBy = decode._id;
+        }
+
         next();
 
     } catch (error) {

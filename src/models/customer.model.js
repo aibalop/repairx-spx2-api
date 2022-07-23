@@ -6,7 +6,7 @@ const customerSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'], uppercase: true, trim: true },
     lastName: { type: String, required: [true, 'Primer apellido es requerido'], uppercase: true, trim: true },
     surName: { type: String, uppercase: true, trim: true },
-    slug: { type: String, require: [true, 'Slug es requerido'], index: true },
+    slug: { type: String, require: [true, 'Slug es requerido'], lowercase: true, index: true },
     phone: { type: String, required: [true, 'Telefono es requerido'], index: true },
     email: { type: String, index: true, trim: true },
     address: {

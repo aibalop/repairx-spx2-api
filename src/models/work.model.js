@@ -5,7 +5,7 @@ import mongoose_delete from 'mongoose-delete';
 const workSchema = new mongoose.Schema({
     key: { type: String, trim: true, index: true },
     name: { type: String, trim: true, require: [true, 'Nombre del servicio es requerido'], uppercase: true },
-    slug: { type: String, require: [true, 'Slug es requerido'], index: true },
+    slug: { type: String, require: [true, 'Slug es requerido'], lowercase: true, index: true },
     description: { type: String, trim: true },
     amount: { type: Number, default: 0 },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
