@@ -27,7 +27,7 @@ workSchema.pre('save', async function (next) {
 
     } else {
 
-        const slugName = slugify(this.get('name'));
+        const slugName = slugify(this.get('name'), { lower: true });
 
         const slugExists = await this.collection.findOne({ slug: slugName, deleted: false });
 

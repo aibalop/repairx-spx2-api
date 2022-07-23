@@ -59,13 +59,11 @@ const getById = _id => {
         .populate([
             {
                 path: 'createdBy',
-                select: '_id name lastName',
-                model: 'User',
+                select: '_id name lastName'
             },
             {
                 path: 'updatedBy',
-                select: '_id name lastName',
-                model: 'User',
+                select: '_id name lastName'
             },
         ]);
 };

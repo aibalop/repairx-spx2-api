@@ -30,7 +30,7 @@ customerSchema.plugin(mongoose_delete, { deletedAt: true, deletedBy: true, overr
 
 customerSchema.pre('save', async function (next) {
 
-    const slugName = slugify(`${this.get('name')} ${this.get('lastName')} ${this.get('surName') ?? ''}`);
+    const slugName = slugify(`${this.get('name')} ${this.get('lastName')} ${this.get('surName') ?? ''}`, { lower: true });
 
     this.set('slug', slugName);
 

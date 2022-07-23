@@ -6,13 +6,13 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'] },
     lastName: { type: String, required: [true, 'Apellido es requerido'] },
     username: { type: String, required: [true, 'Username es requerido'], unique: true },
-    password: { type: String, required: [true, 'Contraseña es requerida'], hide: true },
+    password: { type: String, required: [true, 'Contraseña es requerida'] }
 }, {
     timestamps: true,
     collection: 'users'
 });
 
-userSchema.plugin(mongooseHidden());
+userSchema.plugin(mongooseHidden(), { hidden: { _id: false, password: true } });
 
 userSchema.pre('save', function (next) {
     if (this.password) {

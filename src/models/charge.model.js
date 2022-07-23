@@ -19,7 +19,7 @@ chargeSchema.plugin(paginate);
 
 chargeSchema.pre('save', async function (next) {
 
-    const slugName = slugify(this.get('name'));
+    const slugName = slugify(this.get('name'), { lower: true });
 
     const slugExists = await this.collection.findOne({ slug: slugName, deleted: false });
 
