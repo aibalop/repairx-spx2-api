@@ -1,10 +1,10 @@
-import Charge from '../models/charge.model.js';
+import Work from '../models/work.model.js';
 import slugify from 'slugify';
 
 /**
- * Get All Charges filters by a query and respond with a paginate response
+ * Get All Works filters by a query and respond with a paginate response
  * @param {object} query Object of params to use like filters
- * @returns {Promise<Paginate<Charge>>} A paginate respond of Charge data
+ * @returns {Promise<Paginate<Work>>} A paginate respond of Work data
  */
 const getAll = query => {
     const filters = {};
@@ -16,10 +16,11 @@ const getAll = query => {
         filters['$or'] = [
             { slug: { $regex: new RegExp(cleanName), $options: 'i' } },
             { slug: { $regex: new RegExp(slugName), $options: 'i' } },
+            { key: { $regex: new RegExp(cleanName), $options: 'i' } },
         ];
     }
 
-    return Charge.paginate(filters, {
+    return Work.paginate(filters, {
         page: query.page,
         limit: query.limit,
         sort: { createdAt: -1 },
@@ -41,21 +42,21 @@ const getAll = query => {
 };
 
 /**
- * Find a charge by slug field
+ * Find a work by slug field
  * @param {string} slug indentifier string name
- * @returns {Promise<Charge>} charge found
+ * @returns {Promise<Work>} work found
  */
 const getBySlug = slug => {
-    return Charge.findOne({ slug });
+    return Work.findOne({ slug });
 };
 
 /**
- * Find a charge by _id field
+ * Find a work by _id field
  * @param {string} _id 
- * @returns {Promise<Charge>} charge found
+ * @returns {Promise<Work>} work found
  */
 const getById = _id => {
-    return Charge.findById(_id)
+    return Work.findById(_id)
         .populate([
             {
                 path: 'createdBy',
@@ -69,33 +70,33 @@ const getById = _id => {
 };
 
 /**
- * Create a new charge
- * @param {object<charge>} charge object with fields of charge schema
- * @returns {Promise<charge>} new charge created
+ * Create a new work
+ * @param {object<Work>} work object with fields of work schema
+ * @returns {Promise<Work>} new work created
  */
-const create = charge => {
-    const newCharge = new Charge(charge);
-    return newCharge.save();
+const create = work => {
+    const newWork = new Work(work);
+    return newWork.save();
 };
 
 /**
- * Update a charge
- * @param {string} _id indentifier from charge to update
- * @param {Charge} charge object with fields to update of charger register
- * @returns {Promise<Charge>} charge updated
+ * Update a work
+ * @param {string} _id indentifier from work to update
+ * @param {Work} work object with fields to update of work register
+ * @returns {Promise<Work>} work updated
  */
-const update = (_id, charge) => {
-    return Charge.findOneAndUpdate({ _id }, charge, { new: true });
+const update = (_id, work) => {
+    return Work.findOneAndUpdate({ _id }, work, { new: true });
 };
 
 /**
- * Soft delete of charge by _id
- * @param {string} _id indentifier from charge to destroy
+ * Soft delete of work by _id
+ * @param {string} _id indentifier from work to destroy
  * @param {string} userId _id from user who destroy the register
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id, userId) => {
-    return Charge.delete({ _id }, userId);
+    return Work.delete({ _id }, userId);
 };
 
 export default {

@@ -1,10 +1,10 @@
-import Charge from '../models/charge.model.js';
+import Customer from '../models/customer.model.js';
 import slugify from 'slugify';
 
 /**
- * Get All Charges filters by a query and respond with a paginate response
+ * Get All Customers filters by a query and respond with a paginate response
  * @param {object} query Object of params to use like filters
- * @returns {Promise<Paginate<Charge>>} A paginate respond of Charge data
+ * @returns {Promise<Paginate<Customer>>} A paginate respond of Customer data
  */
 const getAll = query => {
     const filters = {};
@@ -16,10 +16,12 @@ const getAll = query => {
         filters['$or'] = [
             { slug: { $regex: new RegExp(cleanName), $options: 'i' } },
             { slug: { $regex: new RegExp(slugName), $options: 'i' } },
+            { phone: { $regex: new RegExp(cleanName), $options: 'i' } },
+            { email: { $regex: new RegExp(cleanName), $options: 'i' } },
         ];
     }
 
-    return Charge.paginate(filters, {
+    return Customer.paginate(filters, {
         page: query.page,
         limit: query.limit,
         sort: { createdAt: -1 },
@@ -41,21 +43,21 @@ const getAll = query => {
 };
 
 /**
- * Find a charge by slug field
+ * Find a customer by slug field
  * @param {string} slug indentifier string name
- * @returns {Promise<Charge>} charge found
+ * @returns {Promise<Customer>} customer found
  */
 const getBySlug = slug => {
-    return Charge.findOne({ slug });
+    return Customer.findOne({ slug });
 };
 
 /**
- * Find a charge by _id field
+ * Find a customer by _id field
  * @param {string} _id 
- * @returns {Promise<Charge>} charge found
+ * @returns {Promise<Customer>} customer found
  */
 const getById = _id => {
-    return Charge.findById(_id)
+    return Customer.findById(_id)
         .populate([
             {
                 path: 'createdBy',
@@ -69,33 +71,33 @@ const getById = _id => {
 };
 
 /**
- * Create a new charge
- * @param {object<charge>} charge object with fields of charge schema
- * @returns {Promise<charge>} new charge created
+ * Create a new customer
+ * @param {object<Customer>} work object with fields of customer schema
+ * @returns {Promise<Customer>} new customer created
  */
-const create = charge => {
-    const newCharge = new Charge(charge);
-    return newCharge.save();
+const create = customer => {
+    const newCustomer = new Customer(customer);
+    return newCustomer.save();
 };
 
 /**
- * Update a charge
- * @param {string} _id indentifier from charge to update
- * @param {Charge} charge object with fields to update of charger register
- * @returns {Promise<Charge>} charge updated
+ * Update a customer
+ * @param {string} _id indentifier from customer to update
+ * @param {Customer} customer object with fields to update of customer register
+ * @returns {Promise<Customer>} customer updated
  */
-const update = (_id, charge) => {
-    return Charge.findOneAndUpdate({ _id }, charge, { new: true });
+const update = (_id, customer) => {
+    return Customer.findOneAndUpdate({ _id }, customer, { new: true });
 };
 
 /**
- * Soft delete of charge by _id
- * @param {string} _id indentifier from charge to destroy
+ * Soft delete of customer by _id
+ * @param {string} _id indentifier from customer to destroy
  * @param {string} userId _id from user who destroy the register
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id, userId) => {
-    return Charge.delete({ _id }, userId);
+    return Customer.delete({ _id }, userId);
 };
 
 export default {

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
-import mongoose_delete from 'mongoose-delete';
 import slugify from 'slugify';
+import softDelete from 'mongoose-delete';
+import paginate from 'mongoose-paginate-v2';
 
 const customerSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'], uppercase: true, trim: true },
@@ -26,7 +27,8 @@ const customerSchema = new mongoose.Schema({
     collection: 'customers'
 });
 
-customerSchema.plugin(mongoose_delete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+customerSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+customerSchema.plugin(paginate);
 
 customerSchema.pre('save', async function (next) {
 

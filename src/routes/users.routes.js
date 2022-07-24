@@ -9,8 +9,4 @@ router.route(`/${resource}`)
     .get(jwtRequired, usersController.getAll)
     .post(usersController.create);
 
-router.route(`/${resource}/:userId/conversations`)
-    .get(jwtRequired, usersController.getAllConversations)
-    .post(jwtRequired, usersController.createConversation);
-
 export default router;

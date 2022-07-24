@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import slugify from 'slugify';
-import mongoose_delete from 'mongoose-delete';
+import softDelete from 'mongoose-delete';
+import paginate from 'mongoose-paginate-v2';
 
 const workSchema = new mongoose.Schema({
     key: { type: String, trim: true, index: true },
@@ -15,7 +16,8 @@ const workSchema = new mongoose.Schema({
     collection: 'works'
 });
 
-workSchema.plugin(mongoose_delete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+workSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
+workSchema.plugin(paginate);
 
 workSchema.pre('save', async function (next) {
 
