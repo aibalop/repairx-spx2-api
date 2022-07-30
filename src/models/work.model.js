@@ -4,7 +4,7 @@ import softDelete from 'mongoose-delete';
 import paginate from 'mongoose-paginate-v2';
 
 const workSchema = new mongoose.Schema({
-    key: { type: String, trim: true, index: true },
+    key: { type: String, trim: true, require: [true, 'Clave de servicio es requerida'], index: true },
     name: { type: String, trim: true, require: [true, 'Nombre del servicio es requerido'], uppercase: true },
     slug: { type: String, require: [true, 'Slug es requerido'], lowercase: true, index: true },
     description: { type: String, trim: true },

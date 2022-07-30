@@ -53,13 +53,15 @@ const update = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Cargo no encontrado' });
         }
 
-        if (req.body.name) {
-            const slug = slugify(req.body.name);
+        const { name } = req.body.name;
+
+        if (name) {
+            const slug = slugify(name);
 
             const exists = await chargesService.getBySlug(slug);
 
             if (exists && exists._id.toString() !== req.params._id) {
-                return res.status(StatusCodes.BAD_REQUEST).json({ message: `El nombre del cargo ya existe: ${req.body.name}` });
+                return res.status(StatusCodes.BAD_REQUEST).json({ message: `El nombre del cargo ya existe: ${name}` });
             }
 
             req.body.slug = slug;

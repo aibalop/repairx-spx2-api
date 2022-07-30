@@ -51,6 +51,15 @@ const getBySlug = slug => {
 };
 
 /**
+ * Find a work by key field
+ * @param {string} key indentifier string name
+ * @returns {Promise<Work>} work found
+ */
+ const getByKey = key => {
+    return Work.findOne({ key });
+};
+
+/**
  * Find a work by _id field
  * @param {string} _id 
  * @returns {Promise<Work>} work found
@@ -103,6 +112,7 @@ export default {
     getAll,
     getById,
     getBySlug,
+    getByKey,
     create,
     update,
     destroy,

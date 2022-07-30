@@ -53,13 +53,22 @@ const update = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Servicio no encontrado' });
         }
 
-        if (req.body.name) {
-            const slug = slugify(req.body.name);
+        const { key, name } = req.body;
+
+        if (key) {
+            const existsKey = await worksService.getByKey(key);
+            if (existsKey && existsKey._id.toString() !== req.params._id) {
+                return res.status(StatusCodes.BAD_REQUEST).json({ message: `La clave del servicio ya existe: ${key}` });
+            }
+        }
+
+        if (name) {
+            const slug = slugify(name);
 
             const exists = await worksService.getBySlug(slug);
 
             if (exists && exists._id.toString() !== req.params._id) {
-                return res.status(StatusCodes.BAD_REQUEST).json({ message: `El nombre del servicio ya existe: ${req.body.name}` });
+                return res.status(StatusCodes.BAD_REQUEST).json({ message: `El nombre del servicio ya existe: ${name}` });
             }
 
             req.body.slug = slug;
