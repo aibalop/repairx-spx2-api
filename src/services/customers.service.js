@@ -52,6 +52,24 @@ const getBySlug = slug => {
 };
 
 /**
+ * Find a customer by phone field
+ * @param {string} phone number phone of customer
+ * @returns {Promise<Customer>} customer found
+ */
+const getByPhone = phone => {
+    return Customer.findOne({ phone });
+};
+
+/**
+ * Find a customer by email field
+ * @param {string} email email of customer
+ * @returns {Promise<Customer>} customer found
+ */
+const getByEmail = email => {
+    return Customer.findOne({ email });
+};
+
+/**
  * Find a customer by _id field
  * @param {string} _id 
  * @returns {Promise<Customer>} customer found
@@ -104,6 +122,8 @@ export default {
     getAll,
     getById,
     getBySlug,
+    getByPhone,
+    getByEmail,
     create,
     update,
     destroy,

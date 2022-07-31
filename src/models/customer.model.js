@@ -34,6 +34,25 @@ customerSchema.pre('save', async function (next) {
 
     const slugName = slugify(`${this.get('name')} ${this.get('lastName')} ${this.get('surName') ?? ''}`, { lower: true });
 
+    const email = this.get('email');
+    const phone = this.get('phone');
+
+    if (email) {
+        const existsEmail = await this.collection.findOne({ email, deleted: false });
+
+        if (existsEmail) {
+            next(new Error(`Ya existe el email: ${email}`));
+        }
+    }
+
+    if (phone) {
+        const existsPhone = await this.collection.findOne({ phone, deleted: false });
+
+        if (existsPhone) {
+            next(new Error(`Ya existe el teléfono: ${phone}`));
+        }
+    }
+
     this.set('slug', slugName);
 
 });

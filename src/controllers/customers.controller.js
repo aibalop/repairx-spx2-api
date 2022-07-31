@@ -47,19 +47,37 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
 
-        const exists = await customersService.getById(req.params._id);
+        const customerId = req.params._id;
+
+        const exists = await customersService.getById(customerId);
 
         if (!exists) {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Cliente no encontrado' });
         }
 
-        const { name, lastName, surName } = req.body;
+        const { name, lastName, surName, email, phone } = req.body;
 
         if (name && lastName) {
             req.body.slug = slugify(slugify(`${name} ${lastName} ${surName ?? ''}`));;
         }
 
-        const customerUpdated = await customersService.update(req.params._id, req.body);
+        if (email) {
+            const existsEmail = await customersService.getByEmail(email);
+
+            if (existsEmail && existsEmail._id.toString() !== customerId) {
+                throw new Error(`Ya existe el email: ${email}`);
+            }
+        }
+
+        if (phone) {
+            const existsPhone = await customersService.getByPhone(phone);
+
+            if (existsPhone && existsPhone._id.toString() !== customerId) {
+                throw new Error(`Ya existe el teléfono: ${phone}`);
+            }
+        }
+
+        const customerUpdated = await customersService.update(customerId, req.body);
 
         res.status(StatusCodes.OK).json(customerUpdated);
 
