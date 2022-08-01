@@ -4,8 +4,8 @@ import softDelete from 'mongoose-delete';
 import paginate from 'mongoose-paginate-v2';
 
 const chargeSchema = new mongoose.Schema({
-    name: { type: String, trim: true, require: [true, 'Nombre del cargo es requerido'], uppercase: true },
-    slug: { type: String, require: [true, 'Slug es requerido'], lowercase: true, index: true },
+    name: { type: String, trim: true, required: [true, 'Nombre del cargo es requerido'], uppercase: true },
+    slug: { type: String, required: [true, 'Slug es requerido'], lowercase: true, index: true },
     description: { type: String, trim: true },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
