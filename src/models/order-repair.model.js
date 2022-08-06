@@ -25,8 +25,12 @@ const orderRepairSchema = new mongoose.Schema({
         notes: { type: String }
     }],
     devices: [{
+        deviceId: { type: mongoose.Schema.Types.ObjectId, ref: 'Device', required: [true, 'ID de dispositivo es requerido'] },
         name: { type: String, required: [true, 'El nombre de dispositivo es requerido'], uppercase: true, trim: true },
-        brand: { type: String, required: [true, 'La marca es requerida'], uppercase: true, trim: true },
+        brand: {
+            brandId: { type: mongoose.Schema.Types.ObjectId, ref: 'Brand', required: [true, 'ID de la marca es requerido'] },
+            name: { type: String, required: [true, 'La marca es requerida'], uppercase: true, trim: true },
+        },
         model: { type: String, uppercase: true, trim: true },
         accessory: { type: String, required: [true, 'Capture el accesorio'], uppercase: true, trim: true },
         itsOn: { type: Boolean, default: false },
@@ -59,7 +63,6 @@ orderRepairSchema.plugin(paginate);
 orderRepairSchema.pre('save', async function (next) {
     // TODO: generate ORDER ID
     // this.set('slug', slugName);
-
 });
 
 const OrderRepair = mongoose.model('OrderRepair', orderRepairSchema);
