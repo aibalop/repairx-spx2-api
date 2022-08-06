@@ -16,7 +16,7 @@ const brandSchema = new mongoose.Schema({
 brandSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 brandSchema.plugin(paginate);
 
-brandSchema.pre('save', async function (next) {
+brandSchema.pre('validate', async function (next) {
 
     const slugName = slugify(this.get('name'), { lower: true });
 

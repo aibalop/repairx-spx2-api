@@ -3,7 +3,7 @@ import softDelete from 'mongoose-delete';
 import paginate from 'mongoose-paginate-v2';
 
 const orderRepairSchema = new mongoose.Schema({
-    orderId: { type: String, required: [true, 'ORDER ID es requerido'] },
+    orderId: { type: String, required: [true, 'ORDER ID es requerido'], unique: true, index: true},
     customer: {
         customerId: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: [true, 'Cliente es requerido'] },
         name: { type: String },
@@ -60,7 +60,7 @@ const orderRepairSchema = new mongoose.Schema({
 orderRepairSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 orderRepairSchema.plugin(paginate);
 
-orderRepairSchema.pre('save', async function (next) {
+orderRepairSchema.pre('validate', async function (next) {
     // TODO: generate ORDER ID
     // this.set('slug', slugName);
 });

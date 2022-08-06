@@ -17,7 +17,7 @@ const chargeSchema = new mongoose.Schema({
 chargeSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 chargeSchema.plugin(paginate);
 
-chargeSchema.pre('save', async function (next) {
+chargeSchema.pre('validate', async function (next) {
 
     const slugName = slugify(this.get('name'), { lower: true });
 

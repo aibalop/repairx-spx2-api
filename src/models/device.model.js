@@ -16,7 +16,7 @@ const deviceSchema = new mongoose.Schema({
 deviceSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 deviceSchema.plugin(paginate);
 
-deviceSchema.pre('save', async function (next) {
+deviceSchema.pre('validate', async function (next) {
 
     const slugName = slugify(this.get('name'), { lower: true });
 

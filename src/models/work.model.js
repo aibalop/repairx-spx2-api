@@ -19,7 +19,7 @@ const workSchema = new mongoose.Schema({
 workSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 workSchema.plugin(paginate);
 
-workSchema.pre('save', async function (next) {
+workSchema.pre('validate', async function (next) {
 
     const keyExists = await this.collection.findOne({ key: this.get('key'), deleted: false });
 

@@ -53,7 +53,7 @@ const update = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Marca no encontrada' });
         }
 
-        const { name } = req.body.name;
+        const { name } = req.body;
 
         if (name) {
             const slug = slugify(name);

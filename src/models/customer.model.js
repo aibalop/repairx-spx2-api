@@ -30,7 +30,7 @@ const customerSchema = new mongoose.Schema({
 customerSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrideMethods: true });
 customerSchema.plugin(paginate);
 
-customerSchema.pre('save', async function (next) {
+customerSchema.pre('validate', async function (next) {
 
     const slugName = slugify(`${this.get('name')} ${this.get('lastName')} ${this.get('surName') ?? ''}`, { lower: true });
 

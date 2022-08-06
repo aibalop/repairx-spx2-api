@@ -53,7 +53,7 @@ const update = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Dispositivo no encontrado' });
         }
 
-        const { name } = req.body.name;
+        const { name } = req.body;
 
         if (name) {
             const slug = slugify(name);
