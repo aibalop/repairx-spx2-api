@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 import softDelete from 'mongoose-delete';
 import paginate from 'mongoose-paginate-v2';
+import currency from 'currency.js';
 
 const orderRepairSchema = new mongoose.Schema({
-    orderId: { type: String, required: [true, 'ORDER ID es requerido'], unique: true, index: true},
+    orderId: { type: String, required: [true, 'ORDER ID es requerido'], unique: [true, 'El OrderID ya existe'], index: true },
     customer: {
         customerId: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: [true, 'Cliente es requerido'] },
         name: { type: String },
@@ -45,11 +46,11 @@ const orderRepairSchema = new mongoose.Schema({
     deliveryDate: { type: Date },
     status: { type: String, enum: ['Pendiente', 'Completada'], default: 'Pendiente' },
     isPaid: { type: Boolean, default: false },
-    remainingAmount: { type: Number, default: 0 },
+    remainingAmount: { type: Number, required: true },
     discountAmount: { type: Number, default: 0 },
     advanceAmount: { type: Number, default: 0 },
-    subtotalAmount: { type: Number, default: 0 },
-    totalAmount: { type: Number, default: 0 },
+    subtotalAmount: { type: Number, required: true },
+    totalAmount: { type: Number, required: true },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, {
@@ -61,8 +62,16 @@ orderRepairSchema.plugin(softDelete, { deletedAt: true, deletedBy: true, overrid
 orderRepairSchema.plugin(paginate);
 
 orderRepairSchema.pre('validate', async function (next) {
-    // TODO: generate ORDER ID
-    // this.set('slug', slugName);
+    const totalAmountCurrency = currency(this.get('totalAmount'));
+    const remainingAmount = totalAmountCurrency.subtract(this.get('advanceAmount')).value;
+    const isPaid = remainingAmount <= 0;
+    this.set('remainingAmount', isPaid ? 0 : remainingAmount);
+    this.set('isPaid', isPaid);
+
+    const count = await OrderRepair.countDocumentsWithDeleted();
+    this.set('orderId', `${count + 1}`.padStart(4, '0'));
+
+    next();
 });
 
 const OrderRepair = mongoose.model('OrderRepair', orderRepairSchema);
