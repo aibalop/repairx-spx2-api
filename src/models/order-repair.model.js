@@ -121,6 +121,7 @@ const orderRepairSchema = new mongoose.Schema(
           enum: ['Pendiente', 'En Progreso', 'Terminado'],
           default: 'Pendiente',
         },
+        completedAt: { type: Date }
       },
     ],
     deliveryDate: { type: Date },
