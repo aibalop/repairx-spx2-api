@@ -97,9 +97,10 @@ const orderRepairSchema = new mongoose.Schema(
         itsOn: { type: Boolean, default: false },
         cards: {
           type: String,
-          enum: ['SIM', 'SD', 'SIM/SD'],
+          enum: ['SIM', 'SD', 'SIM/SD', 'N/A'],
           uppercase: true,
           trim: true,
+          default: 'N/A',
         },
         password: { type: String },
         details: {
@@ -121,7 +122,7 @@ const orderRepairSchema = new mongoose.Schema(
           enum: ['Pendiente', 'En Progreso', 'Terminado'],
           default: 'Pendiente',
         },
-        completedAt: { type: Date }
+        completedAt: { type: Date },
       },
     ],
     deliveryDate: { type: Date },
