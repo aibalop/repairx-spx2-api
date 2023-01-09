@@ -119,8 +119,8 @@ const orderRepairSchema = new mongoose.Schema(
         warrantyDays: { type: Number, default: 0 },
         status: {
           type: String,
-          enum: ['Pendiente', 'En Progreso', 'Terminado'],
-          default: 'Pendiente',
+          enum: ['En Progreso', 'Terminado', 'Cancelado'],
+          default: 'En Progreso',
         },
         completedAt: { type: Date },
       },
@@ -128,10 +128,11 @@ const orderRepairSchema = new mongoose.Schema(
     deliveryDate: { type: Date },
     status: {
       type: String,
-      enum: ['Pendiente', 'Completada'],
+      enum: ['Pendiente', 'Completada', 'Entregada', 'Cancelada'],
       default: 'Pendiente',
     },
     isPaid: { type: Boolean, default: false },
+    paidAt: { type: Date },
     remainingAmount: { type: Number, required: true },
     discountAmount: { type: Number, default: 0 },
     advanceAmount: { type: Number, default: 0 },
@@ -164,6 +165,10 @@ orderRepairSchema.pre('validate', async function (next) {
 
   const count = await OrderRepair.countDocumentsWithDeleted();
   this.set('orderId', `${count + 1}`.padStart(4, '0'));
+
+  if (isPaid) {
+    this.set('paidAt', Date.now());
+  }
 
   next();
 });

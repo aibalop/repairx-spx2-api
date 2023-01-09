@@ -14,3 +14,9 @@ export const orderRepairsSetValidators = [
     check('totalAmount').not().isEmpty().withMessage('Total es requerido'),
     check('totalAmount').isNumeric().withMessage('Total debe ser un valor numerico'),
 ];
+
+export const orderRepairUpdateSetValidators = [
+    check('isPaid').isBoolean().withMessage('Bandera de pagado debe ser booleano'),
+    check('remainingAmount').isNumeric().withMessage('Cantidad restante debe ser un valor numerico'),
+    check('paidAt').isISO8601().withMessage('Fecha de pago debe tener formato de fecha ISO'),
+];

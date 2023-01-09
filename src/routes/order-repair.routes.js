@@ -2,7 +2,7 @@ import express from 'express';
 import orderRepairsController from '../controllers/order-repairs.controller.js';
 import jwtRequired from '../middlewares/jwt-required.middleware.js';
 import validRequest from '../middlewares/valid-request.middleware.js';
-import { orderRepairsSetValidators } from '../validators/order-repairs.validator.js';
+import { orderRepairsSetValidators, orderRepairUpdateSetValidators } from '../validators/order-repairs.validator.js';
 
 
 const router = express.Router();
@@ -15,7 +15,7 @@ router.route(`/${resource}`)
 router
     .route(`/${resource}/:_id`)
     .get(jwtRequired, orderRepairsController.getById)
-    .put(jwtRequired, orderRepairsSetValidators, validRequest, orderRepairsController.update)
+    .put(jwtRequired, orderRepairUpdateSetValidators, validRequest, orderRepairsController.update)
     .delete(jwtRequired, orderRepairsController.destroy);
 
 export default router;
