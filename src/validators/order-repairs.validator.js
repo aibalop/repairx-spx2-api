@@ -1,4 +1,5 @@
 import { check } from 'express-validator';
+import { OrderRepairStatus } from '../utils/status.util.js'
 
 export const orderRepairsSetValidators = [
     check('customer').not().isEmpty().withMessage('Datos del cliente son requeridos'),
@@ -15,8 +16,17 @@ export const orderRepairsSetValidators = [
     check('totalAmount').isNumeric().withMessage('Total debe ser un valor numerico'),
 ];
 
-export const orderRepairUpdateSetValidators = [
+export const orderRepairUpdatePaymentSetValidators = [
     check('isPaid').isBoolean().withMessage('Bandera de pagado debe ser booleano'),
     check('remainingAmount').isNumeric().withMessage('Cantidad restante debe ser un valor numerico'),
     check('paidAt').isISO8601().withMessage('Fecha de pago debe tener formato de fecha ISO'),
+];
+
+export const orderRepairUpdateStatusSetValidators = [
+    check('status').isIn([
+        OrderRepairStatus.PENDING,
+        OrderRepairStatus.COMPLETED,
+        OrderRepairStatus.DELIVERED,
+        OrderRepairStatus.CANCELED,
+    ]).withMessage('Estatus no valido'),
 ];
