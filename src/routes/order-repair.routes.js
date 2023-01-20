@@ -5,6 +5,7 @@ import validRequest from '../middlewares/valid-request.middleware.js';
 import {
     orderRepairsSetValidators,
     orderRepairUpdatePaymentSetValidators,
+    orderRepairUpdateStatusDeviceSetValidators,
     orderRepairUpdateStatusSetValidators,
 } from '../validators/order-repairs.validator.js';
 
@@ -21,10 +22,13 @@ router
     .get(jwtRequired, orderRepairsController.getById)
     .delete(jwtRequired, orderRepairsController.destroy);
 
-router.route(`/${resource}/payment/:_id`)
+router.route(`/${resource}/:_id/payment`)
     .put(jwtRequired, orderRepairUpdatePaymentSetValidators, validRequest, orderRepairsController.update);
 
-router.route(`/${resource}/status/:_id`)
+router.route(`/${resource}/:_id/status`)
     .put(jwtRequired, orderRepairUpdateStatusSetValidators, validRequest, orderRepairsController.update);
+
+router.route(`/${resource}/:_id/status-device`)
+    .put(jwtRequired, orderRepairUpdateStatusDeviceSetValidators, validRequest, orderRepairsController.updateStatusDevice);
 
 export default router;

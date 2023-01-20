@@ -1,5 +1,5 @@
 import { check } from 'express-validator';
-import { OrderRepairStatus } from '../utils/status.util.js'
+import { OrderRepairStatus, OrderRepairDeviceStatus } from '../utils/status.util.js'
 
 export const orderRepairsSetValidators = [
     check('customer').not().isEmpty().withMessage('Datos del cliente son requeridos'),
@@ -28,5 +28,14 @@ export const orderRepairUpdateStatusSetValidators = [
         OrderRepairStatus.COMPLETED,
         OrderRepairStatus.DELIVERED,
         OrderRepairStatus.CANCELED,
+    ]).withMessage('Estatus no valido'),
+];
+
+export const orderRepairUpdateStatusDeviceSetValidators = [
+    check('index').isNumeric().withMessage('Index debe ser un valor numerico'),
+    check('status').isIn([
+        OrderRepairDeviceStatus.IN_PROGRESS,
+        OrderRepairDeviceStatus.DONE,
+        OrderRepairDeviceStatus.CANCELED,
     ]).withMessage('Estatus no valido'),
 ];

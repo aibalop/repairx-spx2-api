@@ -79,10 +79,26 @@ const create = orderRepair => {
  * Update a order repair
  * @param {string} _id indentifier from order repair to update
  * @param {OrderRepair} orderRepair object with fields to update of order repair register
- * @returns {Promise<OrderRepair>} order repair updated
+ * @returns {Promise<{
+ * acknowledged: boolean, modifiedCount: number, upsertedId: string, upsertedCount: number, matchedCount: number
+ * }>} object updated
  */
 const update = (_id, orderRepair) => {
-    return OrderRepair.findOneAndUpdate({ _id }, orderRepair, { new: true });
+    return OrderRepair.updateOne({ _id }, { $set: orderRepair });
+};
+
+/**
+ * Update a device status in at order repair
+ * @param {string} _id indentifier from order repair to update
+ * @param {number} index position in array of devices
+ * @param {string} status status value to update
+ * @returns {Promise<{
+ * acknowledged: boolean, modifiedCount: number, upsertedId: string, upsertedCount: number, matchedCount: number
+ * }>} object updated
+ */
+const updateStatusDevice = (_id, index, status) => {
+    const fieldToUpdate = `devices.${index}.status`;
+    return OrderRepair.updateOne({ _id, [fieldToUpdate]: { $exists: true } }, { $set: { [fieldToUpdate]: status } });
 };
 
 /**
@@ -101,5 +117,6 @@ export default {
     getByOrderId,
     create,
     update,
+    updateStatusDevice,
     destroy,
 };

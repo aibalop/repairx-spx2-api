@@ -46,15 +46,33 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
 
-        const exists = await orderRepairsService.getById(req.params._id);
+        const updated = await orderRepairsService.update(req.params._id, req.body);
 
-        if (!exists) {
-            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden reparación no encontrado' });
+        if (updated.matchedCount === 0 && updated.modifiedCount === 0) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden de reparación no encontrada' });
         }
 
-        const orderRepairUpdated = await orderRepairsService.update(req.params._id, req.body);
+        res.status(StatusCodes.NO_CONTENT).json({});
 
-        res.status(StatusCodes.OK).json(orderRepairUpdated);
+    } catch (error) {
+        res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+    }
+};
+
+const updateStatusDevice = async (req, res) => {
+    try {
+
+        const { index, status } = req.body;
+
+        const updated = await orderRepairsService.updateStatusDevice(req.params._id, index, status);
+
+        if (updated.matchedCount === 0 && updated.modifiedCount === 0) {
+            return res.status(StatusCodes.NOT_FOUND).json({
+                message: 'No se encontro una orden de reparación o dispositivo que actualizar'
+            });
+        }
+
+        res.status(StatusCodes.NO_CONTENT).json({});
 
     } catch (error) {
         res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
@@ -84,5 +102,6 @@ export default {
     create,
     getById,
     update,
+    updateStatusDevice,
     destroy,
 };
