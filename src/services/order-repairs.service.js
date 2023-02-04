@@ -8,18 +8,29 @@ import OrderRepair from '../models/order-repair.model.js';
 const getAll = query => {
     const filters = {};
 
+    console.log('query -> ', JSON.stringify(query));
+
     if (query.searchText) {
         const invalid = /[°"§%()\[\]{}=\\?´`'#<>|,;.:+_-]+/g;
         const cleanName = query.searchText.trim().replace(invalid, "");
         filters['$or'] = [
-            { orderId: { $regex: new RegExp(cleanName), $options: 'i' } },
+            {orderId: {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.name': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.lastName': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.surName': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.phone': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.email': {$regex: new RegExp(cleanName), $options: 'i'}},
         ];
+    }
+
+    if (query.status) {
+        filters['status'] = {'$in': query.status};
     }
 
     return OrderRepair.paginate(filters, {
         page: query.page,
         limit: query.limit,
-        sort: { createdAt: -1 },
+        sort: {createdAt: -1},
         customLabels: {
             totalDocs: 'count',
             docs: 'data',
@@ -43,12 +54,12 @@ const getAll = query => {
  * @returns {Promise<OrderRepair>} Order Repair found
  */
 const getByOrderId = orderId => {
-    return OrderRepair.findOneWithDeleted({ orderId });
+    return OrderRepair.findOneWithDeleted({orderId});
 };
 
 /**
  * Find a order repair by _id field
- * @param {string} _id 
+ * @param {string} _id
  * @returns {Promise<OrderRepair>} order repair found
  */
 const getById = _id => {
@@ -84,7 +95,7 @@ const create = orderRepair => {
  * }>} object updated
  */
 const update = (_id, orderRepair) => {
-    return OrderRepair.updateOne({ _id }, { $set: orderRepair });
+    return OrderRepair.updateOne({_id}, {$set: orderRepair});
 };
 
 /**
@@ -98,7 +109,7 @@ const update = (_id, orderRepair) => {
  */
 const updateStatusDevice = (_id, index, status) => {
     const fieldToUpdate = `devices.${index}.status`;
-    return OrderRepair.updateOne({ _id, [fieldToUpdate]: { $exists: true } }, { $set: { [fieldToUpdate]: status } });
+    return OrderRepair.updateOne({_id, [fieldToUpdate]: {$exists: true}}, {$set: {[fieldToUpdate]: status}});
 };
 
 /**
@@ -108,7 +119,7 @@ const updateStatusDevice = (_id, index, status) => {
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id, userId) => {
-    return OrderRepair.delete({ _id }, userId);
+    return OrderRepair.delete({_id}, userId);
 };
 
 export default {
