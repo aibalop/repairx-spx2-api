@@ -1,4 +1,4 @@
-import { check } from 'express-validator';
+import { check, param } from 'express-validator';
 import { OrderRepairStatus, OrderRepairDeviceStatus } from '../utils/status.util.js'
 
 export const orderRepairsSetValidators = [

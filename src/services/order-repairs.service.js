@@ -1,14 +1,14 @@
 import OrderRepair from '../models/order-repair.model.js';
-
+import { convertLocalDateToUTCDate } from '../utils/dates-helper.util.js';
+ 
 /**
  * Get All Order Repairs filters by a query and respond with a paginate response
  * @param {object} query Object of params to use like filters
  * @returns {Promise<Paginate<OrderRepair>>} A paginate respond of Order Repair data
  */
 const getAll = query => {
+    console.log("🚀 ~ file: order-repairs.service.js:9 ~ getAll ~ query", JSON.stringify(query));
     const filters = {};
-
-    console.log('query -> ', JSON.stringify(query));
 
     if (query.searchText) {
         const invalid = /[°"§%()\[\]{}=\\?´`'#<>|,;.:+_-]+/g;
@@ -25,6 +25,18 @@ const getAll = query => {
 
     if (query.status) {
         filters['status'] = {'$in': query.status};
+    }
+
+    if (query.isPaid && query.isPaid !== 'both') {
+        filters['isPaid'] = query.isPaid === 'true' ? true : false;
+    }
+
+    if (query.fromDate && query.toDate && query.timeZone) {
+        console.log('Entro al filtro de fechas');
+        const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
+        const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
+
+        filters['createdAt'] = { $gte: fromDate.toISOString(), $lte: toDate.toISOString() };
     }
 
     return OrderRepair.paginate(filters, {
