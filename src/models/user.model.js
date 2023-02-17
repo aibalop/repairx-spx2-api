@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'] },
     lastName: { type: String, required: [true, 'Apellido es requerido'] },
     username: { type: String, required: [true, 'Username es requerido'], unique: true },
+    email: { type: String, required: [true, 'email es requerido'], unique: true },
     password: { type: String, required: [true, 'Contraseña es requerida'] }
 }, {
     timestamps: true,

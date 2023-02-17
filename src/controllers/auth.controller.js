@@ -23,7 +23,7 @@ const signIn = async (req, res) => {
             name: user.name,
             lastName: user.lastName,
             username: user.username,
-            fullName: `${user.name} ${user.lastName}`,
+            email: user.email,
         };
 
         const token = jwtUtil.sign(userPayload);
