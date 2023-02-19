@@ -1,1 +1,893 @@
-{"client":"Thunder Client","collectionName":"repairx-spx2-api","dateExported":"2023-01-20T06:52:19.735Z","version":"1.1","folders":[{"_id":"0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed","name":"users","containerId":"","created":"2023-01-13T08:01:07.801Z","sortNum":10000},{"_id":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"charges","containerId":"","created":"2023-01-13T08:01:07.809Z","sortNum":15000},{"_id":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"devices","containerId":"","created":"2023-01-13T08:01:07.810Z","sortNum":16250},{"_id":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"order-repairs","containerId":"","created":"2023-01-13T08:01:07.811Z","sortNum":16562.5},{"_id":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"brands","containerId":"","created":"2023-01-13T08:01:07.812Z","sortNum":16875},{"_id":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"works","containerId":"","created":"2023-01-13T08:01:07.813Z","sortNum":17500},{"_id":"32536e98-c548-4634-9781-4875b3b42b1e","name":"customers","containerId":"","created":"2023-01-13T08:01:07.814Z","sortNum":18750},{"_id":"3418619d-3136-4be2-ae0d-78c354939c91","name":"auth","containerId":"","created":"2023-01-13T08:01:07.815Z","sortNum":20000}],"requests":[{"_id":"7f73645e-53b8-4859-a9ea-ce43bc1c639b","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"3418619d-3136-4be2-ae0d-78c354939c91","name":"Sign In","url":"http://localhost:3000/api/v1/auth","method":"POST","sortNum":40000,"created":"2023-01-13T08:01:07.812Z","modified":"2023-01-13T08:01:07.812Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n    \"username\": \"alan\",\n    \"password\": \"12345\"\n}","form":[]},"tests":[]},{"_id":"4be7ef10-5968-4851-8618-dd23345a0e84","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed","name":"Create User Conversation","url":"http://localhost:3000/api/v1/users/624cecf93350541e794c6856/conversations","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.814Z","modified":"2023-01-13T08:01:07.814Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDkzOTk4NjR9.EWz7I9bLUWDMxGxTEqnuHg7MzNt13i-pH-jbND9DCjY"}],"params":[],"body":{"type":"json","raw":"{\n    \"recipientUserId\": \"624b9bb2be4adec47f802b05\",\n    \"message\": \"Bien bien aqui andamos\"\n}","form":[]},"tests":[]},{"_id":"bccbb508-d823-47df-8be0-b3334b69bdf7","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"Create Charge","url":"http://localhost:3000/api/v1/charges","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.815Z","modified":"2023-01-13T08:01:07.815Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n  \"name\": \"Refaccion\"\n}","form":[]},"tests":[]},{"_id":"1baeb0f4-3251-48d5-b713-bcefe6fba765","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"Create Work","url":"http://localhost:3000/api/v1/works","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.816Z","modified":"2023-01-13T08:01:07.816Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"key\": \"02\",\n    \"name\": \"Mantenimiento Proactivo\"\n}","form":[]},"tests":[]},{"_id":"8050328b-0933-4ab7-a22d-a6f7ef1e8472","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"32536e98-c548-4634-9781-4875b3b42b1e","name":"Create Customer","url":"http://localhost:3000/api/v1/customers","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.817Z","modified":"2023-01-13T08:01:07.817Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"Carlo\",\n    \"lastName\": \"Does\",\n    \"phone\": \"3119482311\",\n    \"email\": \"carlodoes@gmail.com\"\n}","form":[]},"tests":[]},{"_id":"ab168cde-f4cb-4231-a305-ef9a20276573","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"Create Device","url":"http://localhost:3000/api/v1/devices","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.818Z","modified":"2023-01-13T08:01:07.818Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n  \"name\": \"Impresora\"\n}","form":[]},"tests":[]},{"_id":"26eb155d-0eb6-4ae6-8cb8-68a3da44202b","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"Create Brand","url":"http://localhost:3000/api/v1/brands","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.819Z","modified":"2023-01-13T08:01:07.819Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n  \"name\": \"Apple\"\n}","form":[]},"tests":[]},{"_id":"092a5e16-5a5f-4074-9356-55cc4df55c80","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Create Order Repair","url":"http://localhost:3000/api/v1/order-repairs","method":"POST","sortNum":50000,"created":"2023-01-13T08:01:07.820Z","modified":"2023-01-13T08:01:07.820Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n  \"customer\": {\n    \"customerId\": \"62ee33d7ec92e1d3d40978c5\",\n    \"name\": \"DAN\",\n    \"lastName\": \"DOES\",\n    \"surName\": \"\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n  },\n  \"works\": [\n    {\n      \"workId\": \"62ee338b7eb36827300fc1c3\",\n      \"name\": \"MANTENIMIENTO PROACTIVO\",\n      \"amount\": 200\n    }\n  ],\n  \"charges\": [\n    {\n      \"chargeId\": \"62ee32a4251c84c76549f3a5\",\n      \"name\": \"REFACCION PIEZA\",\n      \"amount\": 200\n    }\n  ],\n  \"devices\": [\n    {\n      \"deviceId\": \"62ee35a2264d85c55c389397\",\n      \"name\": \"CELULAR\",\n      \"brand\": {\n        \"brandId\": \"62ef859adb183beb0c0e4d71\",\n        \"name\": \"Apple\"\n      },\n      \"model\": \"XR\",\n      \"accessory\": \"Funda\",\n      \"itsOn\": true,\n      \"cards\": \"SIM\",\n      \"password\": \"\",\n      \"details\": \"Pantalla con rayones\",\n      \"customerReport\": \"El cliente dice que la pantalla falla el touch\",\n      \"finalDiagnosis\": \"El display se desconpuso\",\n      \"warrantyDays\": 30,\n      \"status\": \"Pendiente\"\n    }\n  ],\n  \"status\": \"Pendiente\",\n  \"isPaid\": false,\n  \"discountAmount\": 0,\n  \"advanceAmount\": 400,\n  \"subtotalAmount\": 400,\n  \"totalAmount\": 400\n}","form":[]},"tests":[]},{"_id":"34e2c39e-e186-4dd9-bb97-d8079e910ffc","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed","name":"Create User","url":"http://localhost:3000/api/v1/users","method":"POST","sortNum":60000,"created":"2023-01-13T08:01:07.821Z","modified":"2023-01-13T08:01:07.821Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"Alan\",\n    \"lastName\": \"Ibarra\",\n    \"username\": \"alan\",\n    \"password\": \"12345\"\n}","form":[]},"tests":[]},{"_id":"e898be36-02b5-409e-9c32-350c8270880d","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"Update Charge","url":"http://localhost:3000/api/v1/charges/62ee32a4251c84c76549f3a5","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.822Z","modified":"2023-01-13T08:01:07.822Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"Refaccion pieza\"\n}","form":[]},"tests":[]},{"_id":"a6f67ddc-a8d8-455c-8b99-9482b1b59306","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"Update Work","url":"http://localhost:3000/api/v1/works/62ee338b7eb36827300fc1c3","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.823Z","modified":"2023-01-13T08:01:07.823Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"key\": \"01\",\n    \"name\": \"Mantenimiento Proactivo\"\n}","form":[]},"tests":[]},{"_id":"b5a78ae4-1907-4964-92b1-90cca10eab26","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"32536e98-c548-4634-9781-4875b3b42b1e","name":"Update Customer","url":"http://localhost:3000/api/v1/customers/62ee33d7ec92e1d3d40978c5","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.824Z","modified":"2023-01-13T08:01:07.824Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"Dan\",\n    \"lastName\": \"Does\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n}","form":[]},"tests":[]},{"_id":"c53c6c0d-6587-433d-b8c0-a2fe989dfb3f","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"Update Device","url":"http://localhost:3000/api/v1/devices/62ee35a2264d85c55c389397","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.825Z","modified":"2023-01-13T08:01:07.825Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"impresoras\"\n}","form":[]},"tests":[]},{"_id":"e69d8ed3-cf83-4009-856d-9f2e96c39b22","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"Update Brand","url":"http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.826Z","modified":"2023-01-13T08:01:07.826Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n    \"name\": \"Alcatel\"\n}","form":[]},"tests":[]},{"_id":"b06ad1e0-9a87-4829-8f99-df42643486ff","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Update Order Repair","url":"http://localhost:3000/api/v1/order-repairs/62ef8762ccd157ba6864e280","method":"PUT","sortNum":60000,"created":"2023-01-13T08:01:07.827Z","modified":"2023-01-13T08:01:07.827Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"body":{"type":"json","raw":"{\n  \"customer\": {\n    \"customerId\": \"62ee33d7ec92e1d3d40978c5\",\n    \"name\": \"DAN\",\n    \"lastName\": \"DOES\",\n    \"surName\": \"\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n  },\n  \"works\": [\n    {\n      \"workId\": \"62ee338b7eb36827300fc1c3\",\n      \"name\": \"MANTENIMIENTO PROACTIVO\",\n      \"amount\": 200\n    }\n  ],\n  \"charges\": [\n    {\n      \"chargeId\": \"62ee32a4251c84c76549f3a5\",\n      \"name\": \"REFACCION PIEZA\",\n      \"amount\": 200\n    }\n  ],\n  \"devices\": [\n    {\n      \"deviceId\": \"62ee35a2264d85c55c389397\",\n      \"name\": \"CELULAR\",\n      \"brand\": {\n        \"brandId\": \"62ef859adb183beb0c0e4d71\",\n        \"name\": \"Apple\"\n      },\n      \"model\": \"XR\",\n      \"accessory\": \"Funda\",\n      \"itsOn\": true,\n      \"cards\": \"SIM\",\n      \"password\": \"\",\n      \"details\": \"Pantalla con rayones\",\n      \"customerReport\": \"El cliente dice que la pantalla falla el touch\",\n      \"finalDiagnosis\": \"El display se desconpuso\",\n      \"warrantyDays\": 30,\n      \"status\": \"Pendiente\"\n    }\n  ],\n  \"status\": \"Pendiente\",\n  \"isPaid\": false,\n  \"discountAmount\": 0,\n  \"advanceAmount\": 400,\n  \"subtotalAmount\": 400,\n  \"totalAmount\": 400\n}","form":[]},"tests":[]},{"_id":"70ec4284-c91e-4644-b2e0-af1f95f1e1f9","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Update Status","url":"http://localhost:3000/api/v1/order-repairs/63aead279ff65f3f03f212e9/status","method":"PUT","sortNum":62500,"created":"2023-01-13T08:01:24.744Z","modified":"2023-01-20T06:41:24.868Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"status\": \"Pendiente\"\n}","form":[]},"tests":[]},{"_id":"b8e5d8c5-5202-4a00-97dd-a13406429664","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Update Payment","url":"http://localhost:3000/api/v1/order-repairs/63aead279ff65f3f03f212e9/payment","method":"PUT","sortNum":63750,"created":"2023-01-13T08:18:13.354Z","modified":"2023-01-20T06:39:50.954Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"isPaid\": true,\n  \"remainingAmount\": 0,\n  \"paidAt\": \"2023-01-03 09:41:45.880Z\"\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQwZmZjOTk0OWRmZjQ1NzQxN2E1N2UiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY3MzU5NzU4NX0.IqkSyqwryVqKTZQPlAaotDRAvhH0xvemJ1JC14SYkao"},"tests":[]},{"_id":"61b09c33-c5db-40a1-80d2-cec697398eb6","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Update Device Status","url":"http://localhost:3000/api/v1/order-repairs/63aead279ff65f3f03f212e9/status-device","method":"PUT","sortNum":64375,"created":"2023-01-19T07:22:59.436Z","modified":"2023-01-20T06:51:56.231Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"index\": 0,\n  \"status\": \"En Progreso\"\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQwZmZjOTk0OWRmZjQ1NzQxN2E1N2UiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY3MzU5NzU4NX0.IqkSyqwryVqKTZQPlAaotDRAvhH0xvemJ1JC14SYkao"},"tests":[]},{"_id":"e5b4ca03-1823-4b3b-ac19-d61f34ddd251","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"Delete Charge","url":"http://localhost:3000/api/v1/charges/62e4f20e7fa8bc8f562928e9","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.828Z","modified":"2023-01-13T08:01:07.828Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODY0OTEyN30.ije1gHIBQdo17oQcek_oWe2jG0wOhgQRFIzfAsL8EfI"},"tests":[]},{"_id":"b10d96ab-ebd5-4d3e-9b0f-c7ae5481b5ec","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"Delete Work","url":"http://localhost:3000/api/v1/works/62e4eda888116c3825a21d5e","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.829Z","modified":"2023-01-13T08:01:07.829Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"},"tests":[]},{"_id":"3067884e-c3d5-4c7b-a8c9-5157275297a9","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"32536e98-c548-4634-9781-4875b3b42b1e","name":"Delete Customer","url":"http://localhost:3000/api/v1/customers/62e61f67cb11a8fa0aac8aee","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.830Z","modified":"2023-01-13T08:01:07.830Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"},"tests":[]},{"_id":"573dd04f-4c44-4c2d-8ced-da598063158a","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"Delete Device","url":"http://localhost:3000/api/v1/devices/62ee307de82aa9d52b792292","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.831Z","modified":"2023-01-13T08:01:07.831Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"tests":[]},{"_id":"e39d3b69-9473-423f-b74e-81ede590043e","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"Delete Device","url":"http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.832Z","modified":"2023-01-13T08:01:07.832Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"tests":[]},{"_id":"ddc2a32b-520b-4de4-ae02-f7b60e254fae","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Delete Order Repair","url":"http://localhost:3000/api/v1/order-repairs/62ef8762ccd157ba6864e280","method":"DELETE","sortNum":65000,"created":"2023-01-13T08:01:07.833Z","modified":"2023-01-13T08:01:07.833Z","headers":[{"name":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"}],"params":[],"tests":[]},{"_id":"13c3f892-cff2-4e47-9359-93af1c4dec4e","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed","name":"Get Users","url":"http://localhost:3000/api/v1/users","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.834Z","modified":"2023-01-13T08:01:07.834Z","headers":[],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDk3NDUyMzh9.m0bFg0whSY03ny4XdMmHzzSGsdnE_LjUyRyZnGiDsUI"},"tests":[]},{"_id":"5a399e94-9500-40c8-a296-ef472477ff69","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"Get Charges","url":"http://localhost:3000/api/v1/charges?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.835Z","modified":"2023-01-13T08:01:07.835Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODY0OTEyN30.ije1gHIBQdo17oQcek_oWe2jG0wOhgQRFIzfAsL8EfI"},"tests":[]},{"_id":"88a9171a-6921-4344-b17b-8b5c702c1747","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"Get Works","url":"http://localhost:3000/api/v1/works?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.836Z","modified":"2023-01-13T08:01:07.836Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"},"tests":[]},{"_id":"b197d359-5512-413d-ad6c-09b3d67a0117","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"32536e98-c548-4634-9781-4875b3b42b1e","name":"Get Customers","url":"http://localhost:3000/api/v1/customers?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.837Z","modified":"2023-01-13T08:01:07.837Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"},"tests":[]},{"_id":"5853f513-6204-4e58-b7d3-0ee3a483d989","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"Get Devices","url":"http://localhost:3000/api/v1/devices?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.838Z","modified":"2023-01-13T08:01:07.838Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"tests":[]},{"_id":"9d2a7e0e-0986-409b-9259-3a63708d5ca5","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"Get Brands","url":"http://localhost:3000/api/v1/brands?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.839Z","modified":"2023-01-13T08:01:07.839Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"tests":[]},{"_id":"3df3835a-6f5a-4694-a48e-ad3d92868076","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Get Order Repairs","url":"http://localhost:3000/api/v1/order-repairs?page=1&limit=10&searchText","method":"GET","sortNum":70000,"created":"2023-01-13T08:01:07.840Z","modified":"2023-01-13T08:01:07.840Z","headers":[],"params":[{"name":"page","value":"1","isPath":false},{"name":"limit","value":"10","isPath":false},{"name":"searchText","value":"","isPath":false}],"tests":[]},{"_id":"c7bda330-f04d-42a0-b946-7f6ad2011371","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed","name":"Get User Conversations","url":"http://localhost:3000/api/v1/users/624b9bb2be4adec47f802b05/conversations","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.841Z","modified":"2023-01-13T08:01:07.841Z","headers":[],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDk3NDUyMzh9.m0bFg0whSY03ny4XdMmHzzSGsdnE_LjUyRyZnGiDsUI"},"tests":[]},{"_id":"6d9fe074-ce10-4f8a-857f-97c2e3bb607c","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"2fa32a39-c426-4d2d-ae5e-c3355df35ef8","name":"Get Charge by id","url":"http://localhost:3000/api/v1/charges/62e4f2eb485ca1f36c592f36","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.842Z","modified":"2023-01-13T08:01:07.842Z","headers":[],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"},"tests":[]},{"_id":"dc59130c-f68f-4b79-9608-d7d58328d833","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"e9d2e85a-8d86-4146-a74a-cf0e8e511801","name":"Get Work by id","url":"http://localhost:3000/api/v1/works/62e4ed7588116c3825a21d53","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.843Z","modified":"2023-01-13T08:01:07.843Z","headers":[],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"},"tests":[]},{"_id":"4c7e4389-fbcf-4e42-a5f9-77ac93984197","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"32536e98-c548-4634-9781-4875b3b42b1e","name":"Get Customer by id","url":"http://localhost:3000/api/v1/customers/62e61b71966bad901459a828","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.844Z","modified":"2023-01-13T08:01:07.844Z","headers":[],"params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"},"tests":[]},{"_id":"c2b1fcc2-b0f1-4314-af6c-6fa88c5235a5","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"17dbef40-f0f7-4cbc-af52-1d74f5145e1b","name":"Get Device by id","url":"http://localhost:3000/api/v1/devices/62ee307de82aa9d52b792292","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.845Z","modified":"2023-01-13T08:01:07.845Z","headers":[],"params":[],"tests":[]},{"_id":"3e5a757e-e461-4436-a57e-bfb610ca2f90","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"fc55eb22-e655-42d1-9f12-f75de7579f9b","name":"Get Brand by id","url":"http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.846Z","modified":"2023-01-13T08:01:07.846Z","headers":[],"params":[],"tests":[]},{"_id":"4eb2ecc6-a54b-4607-b655-9499f5fd7539","colId":"05f1b6e6-48c1-401b-975d-6e099ce5a7c3","containerId":"9a63430c-1878-4a0a-b713-c9f06c64d9a9","name":"Get Order Repair by id","url":"http://localhost:3000/api/v1/order-repairs/62ef88baeb3616d37ab3f954","method":"GET","sortNum":80000,"created":"2023-01-13T08:01:07.847Z","modified":"2023-01-13T08:01:07.847Z","headers":[],"params":[],"tests":[]}],"settings":{"headers":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQwZmZjOTk0OWRmZjQ1NzQxN2E1N2UiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY3NDExMjcyMH0.cLR1gtBYv-fwSM49PvgR1k6RLxrcUtt9q107_g5ntn4"},"tests":[]}}
+{
+    "client": "Thunder Client",
+    "collectionName": "repairx-spx2-api",
+    "dateExported": "2023-02-19T07:27:01.756Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "2b59566d-8736-4584-9fa2-5894ca99769f",
+            "name": "users",
+            "containerId": "",
+            "created": "2022-08-06T09:04:33.124Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "charges",
+            "containerId": "",
+            "created": "2022-08-06T09:04:33.125Z",
+            "sortNum": 15000
+        },
+        {
+            "_id": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "devices",
+            "containerId": "",
+            "created": "2022-08-06T09:05:33.801Z",
+            "sortNum": 16250
+        },
+        {
+            "_id": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "order-repairs",
+            "containerId": "",
+            "created": "2022-08-07T08:07:47.165Z",
+            "sortNum": 16562.5
+        },
+        {
+            "_id": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "brands",
+            "containerId": "",
+            "created": "2022-08-06T09:36:56.266Z",
+            "sortNum": 16875
+        },
+        {
+            "_id": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "works",
+            "containerId": "",
+            "created": "2022-08-06T09:04:33.126Z",
+            "sortNum": 17500
+        },
+        {
+            "_id": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "customers",
+            "containerId": "",
+            "created": "2022-08-06T09:04:33.127Z",
+            "sortNum": 18750
+        },
+        {
+            "_id": "aa347753-efbb-4c23-85e7-82fd6c581060",
+            "name": "auth",
+            "containerId": "",
+            "created": "2022-08-06T09:04:33.128Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "75418cff-7280-4442-b5dc-8f64e2902ac2",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "aa347753-efbb-4c23-85e7-82fd6c581060",
+            "name": "Sign In",
+            "url": "http://localhost:3000/api/v1/auth",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-06T09:04:33.130Z",
+            "modified": "2023-02-19T07:16:31.945Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"alan\",\n    \"password\": \"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6ed881d3-3a08-4370-9adf-1cb721f952b8",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "2b59566d-8736-4584-9fa2-5894ca99769f",
+            "name": "Create User Conversation",
+            "url": "http://localhost:3000/api/v1/users/624cecf93350541e794c6856/conversations",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:04:33.131Z",
+            "modified": "2022-08-06T09:04:33.131Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDkzOTk4NjR9.EWz7I9bLUWDMxGxTEqnuHg7MzNt13i-pH-jbND9DCjY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"recipientUserId\": \"624b9bb2be4adec47f802b05\",\n    \"message\": \"Bien bien aqui andamos\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7d26d64-904f-4b67-9780-9b4907c820d5",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "Create Charge",
+            "url": "http://localhost:3000/api/v1/charges",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:04:33.132Z",
+            "modified": "2022-08-06T09:21:29.129Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Refaccion\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "29b3baae-6bf1-4927-aff4-e78694e3981d",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "Create Work",
+            "url": "http://localhost:3000/api/v1/works",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:04:33.133Z",
+            "modified": "2022-08-06T09:25:14.724Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"key\": \"02\",\n    \"name\": \"Mantenimiento Proactivo\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "344c7e13-fab6-459a-a841-399c5aa09611",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "Create Customer",
+            "url": "http://localhost:3000/api/v1/customers",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:04:33.134Z",
+            "modified": "2022-08-06T09:26:34.881Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Carlo\",\n    \"lastName\": \"Does\",\n    \"phone\": \"3119482311\",\n    \"email\": \"carlodoes@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dee06e37-0207-47ab-9c3e-d86c356b556a",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "Create Device",
+            "url": "http://localhost:3000/api/v1/devices",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:05:33.801Z",
+            "modified": "2022-08-06T09:34:27.034Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Impresora\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "85788e86-20b8-4dbb-9ee6-7601bf72492b",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "Create Brand",
+            "url": "http://localhost:3000/api/v1/brands",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-06T09:36:56.266Z",
+            "modified": "2022-08-06T09:38:39.093Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Apple\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5ea0277a-2989-4e89-b5e6-8588da2b2d8b",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "Create Order Repair",
+            "url": "http://localhost:3000/api/v1/order-repairs",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-07T08:07:47.166Z",
+            "modified": "2022-08-07T09:37:14.424Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"customer\": {\n    \"customerId\": \"62ee33d7ec92e1d3d40978c5\",\n    \"name\": \"DAN\",\n    \"lastName\": \"DOES\",\n    \"surName\": \"\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n  },\n  \"works\": [\n    {\n      \"workId\": \"62ee338b7eb36827300fc1c3\",\n      \"name\": \"MANTENIMIENTO PROACTIVO\",\n      \"amount\": 200\n    }\n  ],\n  \"charges\": [\n    {\n      \"chargeId\": \"62ee32a4251c84c76549f3a5\",\n      \"name\": \"REFACCION PIEZA\",\n      \"amount\": 200\n    }\n  ],\n  \"devices\": [\n    {\n      \"deviceId\": \"62ee35a2264d85c55c389397\",\n      \"name\": \"CELULAR\",\n      \"brand\": {\n        \"brandId\": \"62ef859adb183beb0c0e4d71\",\n        \"name\": \"Apple\"\n      },\n      \"model\": \"XR\",\n      \"accessory\": \"Funda\",\n      \"itsOn\": true,\n      \"cards\": \"SIM\",\n      \"password\": \"\",\n      \"details\": \"Pantalla con rayones\",\n      \"customerReport\": \"El cliente dice que la pantalla falla el touch\",\n      \"finalDiagnosis\": \"El display se desconpuso\",\n      \"warrantyDays\": 30,\n      \"status\": \"Pendiente\"\n    }\n  ],\n  \"status\": \"Pendiente\",\n  \"isPaid\": false,\n  \"discountAmount\": 0,\n  \"advanceAmount\": 400,\n  \"subtotalAmount\": 400,\n  \"totalAmount\": 400\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "92e5c9c5-72a4-4c81-b180-b70fd7c45f4a",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "aa347753-efbb-4c23-85e7-82fd6c581060",
+            "name": "Change Password",
+            "url": "http://localhost:3000/api/v1/auth/password",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-02-19T07:09:26.834Z",
+            "modified": "2023-02-19T07:16:20.805Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"alan\",\n    \"currentPassword\": \"12345\",\n    \"newPassword\": \"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7da3f09-930b-460a-8f3e-ff4efb9e51b6",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "2b59566d-8736-4584-9fa2-5894ca99769f",
+            "name": "Create User",
+            "url": "http://localhost:3000/api/v1/users",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:04:33.135Z",
+            "modified": "2022-08-06T09:04:33.135Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Alan\",\n    \"lastName\": \"Ibarra\",\n    \"username\": \"alan\",\n    \"password\": \"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "91bdf9c0-6e6e-4b1e-80ad-7537974cc0ab",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "Update Charge",
+            "url": "http://localhost:3000/api/v1/charges/62ee32a4251c84c76549f3a5",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:04:33.137Z",
+            "modified": "2022-08-06T09:22:25.670Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Refaccion pieza\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cdc98ba3-be89-453b-8f7f-d0f40475878d",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "Update Work",
+            "url": "http://localhost:3000/api/v1/works/62ee338b7eb36827300fc1c3",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:04:33.138Z",
+            "modified": "2022-08-06T09:25:57.874Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"key\": \"01\",\n    \"name\": \"Mantenimiento Proactivo\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "05be7f3a-006f-4123-b989-56e3c64e20b7",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "Update Customer",
+            "url": "http://localhost:3000/api/v1/customers/62ee33d7ec92e1d3d40978c5",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:04:33.139Z",
+            "modified": "2022-08-06T09:32:19.818Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Dan\",\n    \"lastName\": \"Does\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2ef92857-54ea-4484-8933-018eaec5d624",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "Update Device",
+            "url": "http://localhost:3000/api/v1/devices/62ee35a2264d85c55c389397",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:05:33.803Z",
+            "modified": "2022-08-06T09:34:46.021Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"impresoras\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "305f132a-eb95-44a0-bed3-145948758798",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "Update Brand",
+            "url": "http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-06T09:36:56.267Z",
+            "modified": "2022-08-06T09:38:54.887Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Alcatel\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7025a2dc-72ad-439a-876a-3f0493d01a59",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "Update Order Repair",
+            "url": "http://localhost:3000/api/v1/order-repairs/62ef8762ccd157ba6864e280",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2022-08-07T08:07:47.167Z",
+            "modified": "2022-08-07T09:44:10.706Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"customer\": {\n    \"customerId\": \"62ee33d7ec92e1d3d40978c5\",\n    \"name\": \"DAN\",\n    \"lastName\": \"DOES\",\n    \"surName\": \"\",\n    \"phone\": \"3119482311\",\n    \"email\": \"john@gmail.com\"\n  },\n  \"works\": [\n    {\n      \"workId\": \"62ee338b7eb36827300fc1c3\",\n      \"name\": \"MANTENIMIENTO PROACTIVO\",\n      \"amount\": 200\n    }\n  ],\n  \"charges\": [\n    {\n      \"chargeId\": \"62ee32a4251c84c76549f3a5\",\n      \"name\": \"REFACCION PIEZA\",\n      \"amount\": 200\n    }\n  ],\n  \"devices\": [\n    {\n      \"deviceId\": \"62ee35a2264d85c55c389397\",\n      \"name\": \"CELULAR\",\n      \"brand\": {\n        \"brandId\": \"62ef859adb183beb0c0e4d71\",\n        \"name\": \"Apple\"\n      },\n      \"model\": \"XR\",\n      \"accessory\": \"Funda\",\n      \"itsOn\": true,\n      \"cards\": \"SIM\",\n      \"password\": \"\",\n      \"details\": \"Pantalla con rayones\",\n      \"customerReport\": \"El cliente dice que la pantalla falla el touch\",\n      \"finalDiagnosis\": \"El display se desconpuso\",\n      \"warrantyDays\": 30,\n      \"status\": \"Pendiente\"\n    }\n  ],\n  \"status\": \"Pendiente\",\n  \"isPaid\": false,\n  \"discountAmount\": 0,\n  \"advanceAmount\": 400,\n  \"subtotalAmount\": 400,\n  \"totalAmount\": 400\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7890ed5-ee63-48c6-a60d-a5edf4dc01fb",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "Delete Charge",
+            "url": "http://localhost:3000/api/v1/charges/62e4f20e7fa8bc8f562928e9",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-06T09:04:33.140Z",
+            "modified": "2022-08-06T09:04:33.140Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODY0OTEyN30.ije1gHIBQdo17oQcek_oWe2jG0wOhgQRFIzfAsL8EfI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0ed61669-0e78-4de8-8925-0dd88bc767d5",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "Delete Work",
+            "url": "http://localhost:3000/api/v1/works/62e4eda888116c3825a21d5e",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-06T09:04:33.141Z",
+            "modified": "2022-08-06T09:04:33.141Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7bb63eae-b129-4c2a-9386-10b7322d2296",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "Delete Customer",
+            "url": "http://localhost:3000/api/v1/customers/62e61f67cb11a8fa0aac8aee",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-06T09:04:33.142Z",
+            "modified": "2022-08-06T09:04:33.142Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eca566e2-9d1f-429c-b1fd-30d1b77557d4",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "Delete Device",
+            "url": "http://localhost:3000/api/v1/devices/62ee307de82aa9d52b792292",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-06T09:05:33.804Z",
+            "modified": "2022-08-06T09:20:51.552Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "deeba503-9a72-498a-bb86-1e654d5f231b",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "Delete Device",
+            "url": "http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-06T09:36:56.268Z",
+            "modified": "2022-08-06T09:39:40.818Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b2b40cd1-d9a5-4c10-aacd-761b3ee8fc86",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "Delete Order Repair",
+            "url": "http://localhost:3000/api/v1/order-repairs/62ef8762ccd157ba6864e280",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2022-08-07T08:07:47.168Z",
+            "modified": "2022-08-07T09:44:43.113Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiY3JlYXRlZEF0IjoiMjAyMi0wNy0xNVQwNTo0ODo1Ny43OTBaIiwiaWF0IjoxNjU4MzY5MTExfQ.TaUg4HG5AVO20PlpN0j_YsSLnFsKX1mLiHUUUHLo18I"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ccdc2fed-04de-473c-a0e3-ef14ee068a56",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "2b59566d-8736-4584-9fa2-5894ca99769f",
+            "name": "Get Users",
+            "url": "http://localhost:3000/api/v1/users",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:04:33.143Z",
+            "modified": "2022-08-06T09:04:33.143Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDk3NDUyMzh9.m0bFg0whSY03ny4XdMmHzzSGsdnE_LjUyRyZnGiDsUI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "60cece53-6dca-46da-a79e-635f8c4a35a9",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "Get Charges",
+            "url": "http://localhost:3000/api/v1/charges?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:04:33.144Z",
+            "modified": "2022-08-06T09:04:33.144Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODY0OTEyN30.ije1gHIBQdo17oQcek_oWe2jG0wOhgQRFIzfAsL8EfI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "933b75c8-7295-47ea-a883-5e0db5214e8f",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "Get Works",
+            "url": "http://localhost:3000/api/v1/works?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:04:33.145Z",
+            "modified": "2022-08-06T09:04:33.145Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f5992ac5-2f38-4ddd-8a19-c240c361560b",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "Get Customers",
+            "url": "http://localhost:3000/api/v1/customers?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:04:33.146Z",
+            "modified": "2022-08-06T09:04:33.146Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a5981ec2-bfbc-445e-aac3-06c03884d123",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "Get Devices",
+            "url": "http://localhost:3000/api/v1/devices?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:05:33.805Z",
+            "modified": "2022-08-06T09:15:52.961Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "af09bb91-e613-438d-a940-313b2605033d",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "Get Brands",
+            "url": "http://localhost:3000/api/v1/brands?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-06T09:36:56.269Z",
+            "modified": "2022-08-06T09:38:06.320Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "69d25e2e-a8ec-42f8-9023-474d1527f987",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "Get Order Repairs",
+            "url": "http://localhost:3000/api/v1/order-repairs?page=1&limit=10&searchText",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2022-08-07T08:07:47.169Z",
+            "modified": "2022-08-07T08:10:09.243Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "searchText",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "4a5d362f-42b6-40f3-a6ab-365143ebb62e",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "2b59566d-8736-4584-9fa2-5894ca99769f",
+            "name": "Get User Conversations",
+            "url": "http://localhost:3000/api/v1/users/624b9bb2be4adec47f802b05/conversations",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:04:33.147Z",
+            "modified": "2022-08-06T09:04:33.147Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDk3NDUyMzh9.m0bFg0whSY03ny4XdMmHzzSGsdnE_LjUyRyZnGiDsUI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0f463899-6abd-4ef5-bea4-93c625532aed",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "5f7f1946-ec97-4e92-b261-a832e30f9bae",
+            "name": "Get Charge by id",
+            "url": "http://localhost:3000/api/v1/charges/62e4f2eb485ca1f36c592f36",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:04:33.148Z",
+            "modified": "2022-08-06T09:04:33.148Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1ODU1ODQ3OX0.pWCUIMo_shM7d8sYejamVez-djkkCssbZTlUEkjgAt0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "456605a5-9bf3-4b5a-b953-39ef21c9e615",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "77367e94-4979-49c9-83f9-e7e46b26164a",
+            "name": "Get Work by id",
+            "url": "http://localhost:3000/api/v1/works/62e4ed7588116c3825a21d53",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:04:33.149Z",
+            "modified": "2022-08-06T09:04:33.149Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "00596bff-ff66-4f0b-9e96-4cb06a3dd7bc",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "81a8b4d7-3701-452d-926f-0f43d68ccaad",
+            "name": "Get Customer by id",
+            "url": "http://localhost:3000/api/v1/customers/62e61b71966bad901459a828",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:04:33.150Z",
+            "modified": "2022-08-06T09:04:33.150Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQzYjBmYmYzZThjNTEzNTc1NjI0NDYiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTE2MDk1Mn0.7VoTp6b3D1_hyCh-KR02d6TrA3EBrwQqcFcxmUXRvYI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "69538ab6-02a7-4395-9ee7-98e2488c1e59",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "f37dccaa-dbad-4998-9dd2-4e0c7b9a1699",
+            "name": "Get Device by id",
+            "url": "http://localhost:3000/api/v1/devices/62ee307de82aa9d52b792292",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:05:33.806Z",
+            "modified": "2022-08-06T09:16:36.218Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a3bc2293-c1bd-445b-aab5-1678a5b3433a",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "a17be10d-ee30-4638-a6e6-60d5a121aae4",
+            "name": "Get Brand by id",
+            "url": "http://localhost:3000/api/v1/brands/62ee36a01541f5748273bb18",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-06T09:36:56.270Z",
+            "modified": "2022-08-06T09:39:20.036Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5127d7b8-a5f1-4209-b0be-9f6aab2dae37",
+            "colId": "2bdf4c9b-89c0-44b1-a1dc-694ec05ce3bd",
+            "containerId": "effbbbce-f5ec-450d-9a6d-c15ad0d98431",
+            "name": "Get Order Repair by id",
+            "url": "http://localhost:3000/api/v1/order-repairs/62ef88baeb3616d37ab3f954",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2022-08-07T08:07:47.170Z",
+            "modified": "2022-08-07T09:45:55.595Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [],
+        "auth": {
+            "type": "bearer",
+            "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmVlMmVhYWEyNGNhY2EwNDk0ODI5NGMiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiZnVsbE5hbWUiOiJBbGFuIEliYXJyYSIsImlhdCI6MTY1OTc3NjY4OH0.vbjo5S6MlNnXI-t1_6634pJXF56mvggCnecddVP3SXA"
+        },
+        "tests": []
+    }
+}

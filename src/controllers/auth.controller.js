@@ -39,4 +39,34 @@ const signIn = async (req, res) => {
     }
 };
 
-export default { signIn };
+const changePassword = async (req, res) => {
+
+    const { username, currentPassword, newPassword } = req.body;
+
+    const user = await usersService.getByUsername(username);
+
+    if (!user) {
+        return res.status(StatusCodes.NOT_FOUND).json({ message: `No se encontro el usuario: ${username}` });
+    }
+
+    if (!hashUtil.compare(currentPassword, user.password)) {
+        return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Contraseña actual no coincide' });
+    }
+
+    try {
+
+        user.password = newPassword;
+        user.save();
+
+        res.status(StatusCodes.NO_CONTENT).json();
+
+    } catch (error) {
+        res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+    }
+
+};
+
+export default {
+    signIn,
+    changePassword,
+};
