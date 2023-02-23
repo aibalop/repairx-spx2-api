@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import mongooseHidden from 'mongoose-hidden';
 import hashUtil from '../utils/hash.util.js';
 
+const ERROR_CODE_MONGO = 11000;
+
 const userSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Nombre es requerido'] },
     lastName: { type: String, required: [true, 'Apellido es requerido'] },
@@ -23,9 +25,16 @@ userSchema.pre('save', function (next) {
 });
 
 userSchema.post('save', function (error, doc, next) {
-    const ERROR_CODE_MONGO = 11000;
     if (error.name === 'MongoServerError' && error.code === ERROR_CODE_MONGO) {
-        next(new Error(`Ya existe el nombre de usuario: ${doc.username}`));
+        next(new Error('Duplicidad de nombre de usuario o email'));
+    } else {
+        next();
+    }
+});
+
+userSchema.post('updateOne', function (error, res, next) {
+    if (error.name === 'MongoServerError' && error.code === ERROR_CODE_MONGO) {
+        next(new Error('Duplicidad de nombre de usuario o email'));
     } else {
         next();
     }

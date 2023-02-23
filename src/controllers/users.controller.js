@@ -21,7 +21,25 @@ const getAll = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+
+  try {
+    const updated = await usersService.update(req.params._id, req.body);
+
+    if (updated.matchedCount === 0 && updated.modifiedCount === 0) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.status(StatusCodes.NO_CONTENT).json({});
+
+  } catch (error) {
+    res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+  }
+
+};
+
 export default {
   create,
   getAll,
+  update,
 };

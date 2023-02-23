@@ -7,7 +7,7 @@ import { convertLocalDateToUTCDate } from '../utils/dates-helper.util.js';
  * @returns {Promise<Paginate<OrderRepair>>} A paginate respond of Order Repair data
  */
 const getAll = query => {
-    console.log("🚀 ~ file: order-repairs.service.js:9 ~ getAll ~ query", JSON.stringify(query));
+
     const filters = {};
 
     if (query.searchText) {
@@ -32,7 +32,6 @@ const getAll = query => {
     }
 
     if (query.fromDate && query.toDate && query.timeZone) {
-        console.log('Entro al filtro de fechas');
         const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
         const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
 
