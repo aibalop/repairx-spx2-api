@@ -12,6 +12,7 @@ router.route(`/${resource}`)
     .post(userSetValidators, validRequest, usersController.create);
 
 router.route(`/${resource}/:_id`)
+    .get(jwtRequired, usersController.getByid)
     .put(jwtRequired, userSetValidators, validRequest, usersController.update)
 
 export default router;

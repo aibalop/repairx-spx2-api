@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "repairx-spx2-api",
-    "dateExported": "2023-02-23T06:47:55.951Z",
+    "dateExported": "2023-02-24T08:16:19.243Z",
     "version": "1.1",
     "folders": [
         {
@@ -856,18 +856,14 @@
             "_id": "c7bda330-f04d-42a0-b946-7f6ad2011371",
             "colId": "05f1b6e6-48c1-401b-975d-6e099ce5a7c3",
             "containerId": "0cafb8f3-3962-4a03-b4c3-f41ed3afb7ed",
-            "name": "Get User Conversations",
-            "url": "http://localhost:3000/api/v1/users/624b9bb2be4adec47f802b05/conversations",
+            "name": "Get User By Id",
+            "url": "http://localhost:3000/api/v1/users/63f7035cd93e42221a40d60d",
             "method": "GET",
             "sortNum": 80000,
             "created": "2023-01-13T08:01:07.841Z",
-            "modified": "2023-01-13T08:01:07.841Z",
+            "modified": "2023-02-24T04:18:17.173Z",
             "headers": [],
             "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiOWJiMmJlNGFkZWM0N2Y4MDJiMDUiLCJuYW1lIjoiQWxhbiIsImxhc3ROYW1lIjoiSWJhcnJhIiwidXNlcm5hbWUiOiJhbGFuIiwiY3JlYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNC0wNVQwMTozMDoyNi4zMDVaIiwiX192IjowLCJpYXQiOjE2NDk3NDUyMzh9.m0bFg0whSY03ny4XdMmHzzSGsdnE_LjUyRyZnGiDsUI"
-            },
             "tests": []
         },
         {

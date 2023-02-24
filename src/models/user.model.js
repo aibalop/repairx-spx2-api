@@ -17,6 +17,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(mongooseHidden(), { hidden: { _id: false, password: true } });
 
+// TODO add a pre find to validate the _id its a valid mongo _id
+
 userSchema.pre('save', function (next) {
     if (this.password) {
         this.password = hashUtil.generate(this.password);

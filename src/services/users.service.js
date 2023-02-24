@@ -20,6 +20,15 @@ const getByUsername = username => {
 };
 
 /**
+ * Find a user by _id
+ * @param {string} _id _id of the user
+ * @returns {Object<User>} user object
+ */
+const getById = _id => {
+    return User.findById(_id);
+};
+
+/**
  * Get all users
  * @param {Object} query filters to find users
  * @returns {Array<Object<User>>} array of users
@@ -50,5 +59,6 @@ export default {
     create,
     getByUsername,
     getAll,
+    getById,
     update,
 };

@@ -21,6 +21,21 @@ const getAll = async (req, res) => {
   }
 };
 
+const getByid = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const user = await usersService.getById(_id);
+
+    if (!user) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'No se encontro al usuario' });
+    }
+
+    res.status(StatusCodes.OK).json(user);
+  } catch (error) {
+    res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+  }
+};
+
 const update = async (req, res) => {
 
   try {
@@ -41,5 +56,6 @@ const update = async (req, res) => {
 export default {
   create,
   getAll,
+  getByid,
   update,
 };
