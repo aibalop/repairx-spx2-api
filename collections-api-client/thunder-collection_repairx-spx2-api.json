@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "repairx-spx2-api",
-    "dateExported": "2023-02-24T08:16:19.243Z",
+    "dateExported": "2023-03-12T08:39:06.770Z",
     "version": "1.1",
     "folders": [
         {
@@ -59,9 +59,46 @@
             "containerId": "",
             "created": "2023-01-13T08:01:07.815Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "03c7d21f-6108-4d61-ba0b-e8dab96ab865",
+            "name": "dashboard",
+            "containerId": "",
+            "created": "2023-03-09T06:44:24.930Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
+        {
+            "_id": "f111e0a9-8784-447f-9412-420203de8365",
+            "colId": "05f1b6e6-48c1-401b-975d-6e099ce5a7c3",
+            "containerId": "03c7d21f-6108-4d61-ba0b-e8dab96ab865",
+            "name": "Summary",
+            "url": "http://localhost:3000/api/v1/dashboard/summary?fromDate=1662789600000&toDate=1678517999000&timeZone=420",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-03-09T06:44:37.658Z",
+            "modified": "2023-03-10T08:45:41.259Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "fromDate",
+                    "value": "1662789600000",
+                    "isPath": false
+                },
+                {
+                    "name": "toDate",
+                    "value": "1678517999000",
+                    "isPath": false
+                },
+                {
+                    "name": "timeZone",
+                    "value": "420",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
         {
             "_id": "7f73645e-53b8-4859-a9ea-ce43bc1c639b",
             "colId": "05f1b6e6-48c1-401b-975d-6e099ce5a7c3",
