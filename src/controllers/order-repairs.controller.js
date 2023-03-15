@@ -31,6 +31,22 @@ const getById = async (req, res) => {
     }
 };
 
+const getByOrderId = async (req, res) => {
+    try {
+
+        const orderRepair = await orderRepairsService.getByOrderId(req.params.orderId);
+
+        if (!orderRepair) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden Reparación no encontrado' });
+        }
+
+        res.status(StatusCodes.OK).json(orderRepair);
+
+    } catch (error) {
+        res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+    }
+};
+
 const create = async (req, res) => {
     try {
 
@@ -104,4 +120,5 @@ export default {
     update,
     updateStatusDevice,
     destroy,
+    getByOrderId,
 };

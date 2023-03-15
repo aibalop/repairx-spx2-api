@@ -22,6 +22,9 @@ router
     .get(jwtRequired, orderRepairsController.getById)
     .delete(jwtRequired, orderRepairsController.destroy);
 
+router.route(`/${resource}/order-id/:orderId`)
+    .get(jwtRequired, orderRepairsController.getByOrderId);
+
 router.route(`/${resource}/:_id/payment`)
     .put(jwtRequired, orderRepairUpdatePaymentSetValidators, validRequest, orderRepairsController.update);
 
