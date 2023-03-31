@@ -25,6 +25,9 @@ router
 router.route(`/${resource}/order-id/:orderId`)
     .get(jwtRequired, orderRepairsController.getByOrderId);
 
+router.route(`/${resource}/order-id/:orderId/pdf`)
+    .get(jwtRequired, orderRepairsController.getOrderRepairPDF);
+
 router.route(`/${resource}/:_id/payment`)
     .put(jwtRequired, orderRepairUpdatePaymentSetValidators, validRequest, orderRepairsController.update);
 

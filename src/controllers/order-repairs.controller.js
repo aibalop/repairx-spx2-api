@@ -1,5 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import orderRepairsService from '../services/order-repairs.service.js';
+import pdfUtil from '../utils/pdf.util.js';
 
 const getAll = async (req, res) => {
     try {
@@ -43,6 +44,26 @@ const getByOrderId = async (req, res) => {
         res.status(StatusCodes.OK).json(orderRepair);
 
     } catch (error) {
+        res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
+    }
+};
+
+const getOrderRepairPDF = async (req, res) => {
+    try {
+
+        const orderRepair = await orderRepairsService.getByOrderId(req.params.orderId);
+
+        if (!orderRepair) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden Reparación no encontrado' });
+        }
+
+        const orderRepairPDFStream = await pdfUtil.generatePDF('order-repair-created.html', orderRepair);
+
+        res.setHeader('Content-Type', 'application/pdf');
+        orderRepairPDFStream.pipe(res);
+
+    } catch (error) {
+        
         res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
     }
 };
@@ -121,4 +142,5 @@ export default {
     updateStatusDevice,
     destroy,
     getByOrderId,
+    getOrderRepairPDF,
 };
