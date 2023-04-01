@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import orderRepairsService from '../services/order-repairs.service.js';
 import pdfUtil from '../utils/pdf.util.js';
+import formatUtil from '../utils/format.util.js';
 
 const getAll = async (req, res) => {
     try {
@@ -57,10 +58,24 @@ const getOrderRepairPDF = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden Reparación no encontrado' });
         }
 
-        const orderRepairPDFStream = await pdfUtil.generatePDF('order-repair-created.html', orderRepair);
+        const data = orderRepair.toObject();
+
+        data.devices = data.devices.map(device => {
+            device.itsOn = device.itsOn ? 'Si' : 'No';
+            return device;
+        });
+        data.createdAt = formatUtil.getFormattedDate(data.createdAt);
+        data.deliveryDate = formatUtil.getFormattedDate(data.deliveryDate, false);
+        data.customer.phone = formatUtil.getFormattedPhone(data.customer.phone);
+        data.totalAmount = formatUtil.getFormattedAmount(data.totalAmount);
+        data.advanceAmount = formatUtil.getFormattedAmount(data.advanceAmount);
+        data.remainingAmount = formatUtil.getFormattedAmount(data.remainingAmount);
+
+        const pdf = await pdfUtil.generatePDF('order-repair-created.html', data);
 
         res.setHeader('Content-Type', 'application/pdf');
-        orderRepairPDFStream.pipe(res);
+        res.setHeader('Content-Length', pdf.length)
+        res.send(pdf);
 
     } catch (error) {
         
