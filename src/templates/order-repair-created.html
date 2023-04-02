@@ -27,7 +27,7 @@
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
-            font-size: smaller;
+            font-size: 11px !important;
         }
 
         .cell-money-title {
@@ -41,8 +41,19 @@
         }
 
         .font-size-generic {
-            font-size: 14px;
+            font-size: 11px !important;
         }
+
+        .row-grid {
+            display: flex;
+        }
+
+        .col-grid {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
     </style>
 </head>
 <body>
@@ -209,20 +220,44 @@
     </tr>
 </table>
 
-<table class="font-size-generic" style="width: 100%; margin-top: 15px;">
-    <tr>
-        <td class="cell-money-title">Importe:</td>
-        <td class="cell-money-value">{{ totalAmount }}</td>
-    </tr>
-    <tr>
-        <td class="cell-money-title">Anticipo:</td>
-        <td class="cell-money-value">{{ advanceAmount }}</td>
-    </tr>
-    <tr>
-        <td class="cell-money-title">Resta:</td>
-        <td class="cell-money-value">{{ remainingAmount }}</td>
-    </tr>
-</table>
+<div class="row-grid" style="margin-top: 15px;">
+
+    <div class="col-grid font-size-generic">
+
+        <span class="bold">IMPORTANTE</span>
+        <span>* EQUIPOS MOJADOS NO TIENEN GARANTIA.</span>
+        <span>* NO NOS HACEMOS RESPONSABLES DE EQUIPOS QUE LLEGAN APAGADOS.</span>
+        <span>* PASADOS 30 DIAS DESPUES DE HABER NOTIFICADO LA REPARACION.</span>
+        <span>* NO NOS HACEMOS RSPONSABLES DE SUS EQUIPOS.</span>
+        <span>* NO NOS RESPONSABILIZAMOS POR ROBO, ASALTO O DESASTRES NATURALES.</span>
+        <span>* SIN NOTA NO SE APLICA GARANTIA.</span>
+        <span>* LA GARANTIA INICIA DESDE QUE SE NOTIFICA LA REPARACION.</span>
+        <span>* TODA REVISIÓN TIENE COSTO.</span>
+        <span class="bold">XXXXXX # xxx, COL. XXXXX</span>
+        <span class="bold ">TEL: XXX-XXX-XX-XX</span>
+
+    </div>
+
+    <div class="col-grid">
+
+        <table class="font-size-generic" style="width: 100%; margin-top: 15px;">
+            <tr>
+                <td class="cell-money-title">Importe:</td>
+                <td class="cell-money-value">{{ totalAmount }}</td>
+            </tr>
+            <tr>
+                <td class="cell-money-title">Anticipo:</td>
+                <td class="cell-money-value">{{ advanceAmount }}</td>
+            </tr>
+            <tr>
+                <td class="cell-money-title">Resta:</td>
+                <td class="cell-money-value">{{ remainingAmount }}</td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
 
 </body>
 </html>
