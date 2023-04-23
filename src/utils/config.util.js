@@ -9,7 +9,6 @@ dotenv.config({ path: envPath });
 const config = {
     api: {
         name: process.env.APP_NAME,
-        author: process.env.APP_AUTHOR,
         port: process.env.APP_PORT,
         secretKey: process.env.APP_SECRET_KEY,
     },

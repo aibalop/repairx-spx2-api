@@ -12,7 +12,7 @@ const io = new Server(server, {
   },
 });
 
-const URL_CONNECTION = `mongodb://${config.database.user}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.name}`;
+const URL_CONNECTION = `mongodb://${config.database.user}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.name}?authSource=admin`;
 
 console.log(URL_CONNECTION);
 
@@ -37,7 +37,6 @@ mongoose.connect(URL_CONNECTION, (err, _) => {
 
     server.listen(config.api.port || 3000, () => {
       console.log(`API: ${config.api.name}`);
-      console.log(`Author: ${config.api.author}`);
       console.log(`API runs in port: ${config.api.port || 3000}`);
     });
   }
