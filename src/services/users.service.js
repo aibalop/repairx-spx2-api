@@ -55,10 +55,20 @@ const update = (_id, user) => {
     return User.updateOne({ _id }, { $set: user });
 };
 
+/**
+ * Delete of User by _id
+ * @param {string} _id indentifier from User to destroy
+ * @returns {Promise<any>} object with deleted info
+ */
+const destroy = (_id) => {
+    return User.delete({ _id });
+};
+
 export default {
     create,
     getByUsername,
     getAll,
     getById,
     update,
+    destroy,
 };

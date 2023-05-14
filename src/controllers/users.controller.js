@@ -1,11 +1,37 @@
 import { StatusCodes } from 'http-status-codes';
 import usersService from '../services/users.service.js';
+import companiesService from '../services/companies.service.js';
 
 const create = async (req, res) => {
+  const { user, company } = req.body;
+
+  let userId, companyId = null;
+
   try {
-    const newUser = await usersService.create(req.body);
-    res.status(StatusCodes.CREATED).json(newUser);
+
+    const userCreated = await usersService.create(user);
+
+    userId = userCreated._id;
+
+    const companyCreated = await companiesService.create(company);
+
+    companyId = companyCreated._id;
+
+    userCreated.companyId = companyId;
+
+    userCreated.save();
+
+    res.status(StatusCodes.CREATED).json(userCreated);
   } catch (error) {
+
+    if (userId) {
+      await usersService.delete(userId);
+    }
+
+    if (companyId) {
+      await companiesService.delete(companyId);
+    }
+
     res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });
   }
 };

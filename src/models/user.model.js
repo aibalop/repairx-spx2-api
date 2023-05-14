@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: [true, 'Apellido es requerido'] },
     username: { type: String, required: [true, 'Username es requerido'], unique: true },
     email: { type: String, required: [true, 'email es requerido'], unique: true },
-    password: { type: String, required: [true, 'Contraseña es requerida'] }
+    password: { type: String, required: [true, 'Contraseña es requerida'] },
+    companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
 }, {
     timestamps: true,
     collection: 'users'
