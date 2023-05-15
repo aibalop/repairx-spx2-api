@@ -7,7 +7,6 @@ const companySchema = new mongoose.Schema(
         name: {
             type: String,
             required: [true, 'Nombre de la empresa es requerido'],
-            uppercase: true,
             trim: true,
         },
         slug: {

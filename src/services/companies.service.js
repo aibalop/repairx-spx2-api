@@ -2,9 +2,9 @@ import Company from '../models/company.model.js';
 import slugify from 'slugify';
 
 /**
- * Get All Companys filters by a query and respond with a paginate response
+ * Get All companies filters by a query and respond with a paginate response
  * @param {object} query Object of params to use like filters
- * @returns {Promise<Paginate<Company>>} A paginate respond of Company data
+ * @returns {Promise<Paginate<Company>>} A paginate respond of companies data
  */
 const getAll = query => {
     const filters = {};
@@ -43,7 +43,7 @@ const getAll = query => {
 };
 
 /**
- * Find a Company by _id field
+ * Find a company by _id field
  * @param {string} _id 
  * @returns {Promise<Company>} Company found
  */
@@ -62,32 +62,32 @@ const getById = _id => {
 };
 
 /**
- * Create a new Company
- * @param {object<Company>} work object with fields of Company schema
- * @returns {Promise<Company>} new Company created
+ * Create a new company
+ * @param {object<Company>} Object with fields of company schema
+ * @returns {Promise<Company>} new company created
  */
-const create = Company => {
-    const newCompany = new Company(Company);
+const create = company => {
+    const newCompany = new Company(company);
     return newCompany.save();
 };
 
 /**
  * Update a Company
- * @param {string} _id indentifier from Company to update
- * @param {Company} Company object with fields to update of Company register
+ * @param {string} _id indentifier from company to update
+ * @param {Company} Object with fields to update of company register
  * @returns {Promise<Company>} Company updated
  */
-const update = (_id, Company) => {
-    return Company.findOneAndUpdate({ _id }, Company, { new: true });
+const update = (_id, company) => {
+    return Company.findOneAndUpdate({ _id }, company, { new: true });
 };
 
 /**
  * Delete of Company by _id
- * @param {string} _id indentifier from Company to destroy
+ * @param {string} _id indentifier from company to destroy
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id) => {
-    return Company.delete({ _id });
+    return Company.deleteOne({ _id });
 };
 
 export default {

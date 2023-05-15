@@ -13,6 +13,8 @@ const create = async (req, res) => {
 
     userId = userCreated._id;
 
+    company.createdBy = userId;
+
     const companyCreated = await companiesService.create(company);
 
     companyId = companyCreated._id;
@@ -25,11 +27,11 @@ const create = async (req, res) => {
   } catch (error) {
 
     if (userId) {
-      await usersService.delete(userId);
+      await usersService.destroy(userId);
     }
 
     if (companyId) {
-      await companiesService.delete(companyId);
+      await companiesService.destroy(companyId);
     }
 
     res.status(StatusCodes.BAD_REQUEST).json({ message: error.toString() });

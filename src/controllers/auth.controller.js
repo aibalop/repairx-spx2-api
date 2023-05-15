@@ -8,7 +8,7 @@ const signIn = async (req, res) => {
 
         const { username, password } = req.body;
 
-        const user = await usersService.getByUsername(username);
+        const user = await usersService.getByUsername(username, true);
 
         if (!user) {
             return res.status(StatusCodes.NOT_FOUND).json({ message: `No se encontro el usuario: ${username}` });
@@ -24,6 +24,7 @@ const signIn = async (req, res) => {
             lastName: user.lastName,
             username: user.username,
             email: user.email,
+            companyId: user.companyId,
         };
 
         const token = jwtUtil.sign(userPayload);

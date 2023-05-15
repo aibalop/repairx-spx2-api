@@ -15,8 +15,8 @@ const create = user => {
  * @param {string} username username unique to the user
  * @returns {Object<User>} user object
  */
-const getByUsername = username => {
-    return User.findOne({ username });
+const getByUsername = (username, withCompanyPopulate = false) => {
+    return withCompanyPopulate ? User.findOne({ username }).populate('companyId', '_id name') : User.findOne({ username });
 };
 
 /**
@@ -61,7 +61,7 @@ const update = (_id, user) => {
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id) => {
-    return User.delete({ _id });
+    return User.deleteOne({ _id });
 };
 
 export default {
