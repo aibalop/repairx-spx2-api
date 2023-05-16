@@ -19,9 +19,7 @@ const create = async (req, res) => {
 
     companyId = companyCreated._id;
 
-    userCreated.companyId = companyId;
-
-    userCreated.save();
+    await usersService.update(userId, { companyId: companyId });
 
     res.status(StatusCodes.CREATED).json(userCreated);
   } catch (error) {
