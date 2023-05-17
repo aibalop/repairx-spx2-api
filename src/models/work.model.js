@@ -9,6 +9,7 @@ const workSchema = new mongoose.Schema({
     slug: { type: String, required: [true, 'Slug es requerido'], lowercase: true, index: true },
     description: { type: String, trim: true },
     amount: { type: Number, default: 0 },
+    companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: [true, 'Campo requerido'] },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, {
@@ -21,7 +22,9 @@ workSchema.plugin(paginate);
 
 workSchema.pre('validate', async function (next) {
 
-    const keyExists = await this.collection.findOne({ key: this.get('key'), deleted: false });
+    const companyId = this.get('companyId');
+
+    const keyExists = await this.collection.findOne({ key: this.get('key'), companyId, deleted: false });
 
     if (keyExists) {
 
@@ -31,7 +34,7 @@ workSchema.pre('validate', async function (next) {
 
         const slugName = slugify(this.get('name'), { lower: true });
 
-        const slugExists = await this.collection.findOne({ slug: slugName, deleted: false });
+        const slugExists = await this.collection.findOne({ slug: slugName, companyId, deleted: false });
 
         if (slugExists) {
             next(new Error('Ya existe un servicio con ese nombre'));

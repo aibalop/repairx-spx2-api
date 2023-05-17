@@ -139,6 +139,7 @@ const orderRepairSchema = new mongoose.Schema(
     advanceAmount: { type: Number, default: 0 },
     subtotalAmount: { type: Number, required: true },
     totalAmount: { type: Number, required: true },
+    companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: [true, 'Campo requerido'] },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
@@ -164,7 +165,9 @@ orderRepairSchema.pre('validate', async function (next) {
   this.set('remainingAmount', isPaid ? 0 : remainingAmount);
   this.set('isPaid', isPaid);
 
-  const count = await OrderRepair.countDocumentsWithDeleted();
+  const companyId = this.get('companyId');
+
+  const count = await OrderRepair.countDocumentsWithDeleted({ companyId });
   this.set('orderId', `${count + 1}`.padStart(4, '0'));
 
   if (isPaid) {

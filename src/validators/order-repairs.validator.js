@@ -14,6 +14,7 @@ export const orderRepairsSetValidators = [
     check('subtotalAmount').isNumeric().withMessage('Subtotal debe ser un valor numerico'),
     check('totalAmount').not().isEmpty().withMessage('Total es requerido'),
     check('totalAmount').isNumeric().withMessage('Total debe ser un valor numerico'),
+    check('companyId').not().isEmpty().withMessage('Asignación de empresa es requerida'),
 ];
 
 export const orderRepairUpdatePaymentSetValidators = [

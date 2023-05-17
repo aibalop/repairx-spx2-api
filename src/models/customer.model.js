@@ -41,6 +41,7 @@ const customerSchema = new mongoose.Schema(
       state: { type: String },
       country: { type: String },
     },
+    companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: [true, 'Campo requerido'] },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
@@ -65,10 +66,12 @@ customerSchema.pre('validate', async function (next) {
 
   const email = this.get('email');
   const phone = this.get('phone');
+  const companyId = this.get('companyId');
 
   if (email) {
     const existsEmail = await this.collection.findOne({
       email,
+      companyId,
       deleted: false,
     });
 
@@ -80,6 +83,7 @@ customerSchema.pre('validate', async function (next) {
   if (phone) {
     const existsPhone = await this.collection.findOne({
       phone,
+      companyId,
       deleted: false,
     });
 
