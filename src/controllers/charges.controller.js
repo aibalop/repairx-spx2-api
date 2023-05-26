@@ -5,9 +5,7 @@ import chargesService from '../services/charges.service.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const charges = await chargesService.getAll(query);
+        const charges = await chargesService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(charges);
 

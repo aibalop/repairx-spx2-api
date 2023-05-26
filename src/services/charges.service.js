@@ -19,6 +19,10 @@ const getAll = query => {
         ];
     }
 
+    if (query.companyId) {
+        filters['companyId'] = query.companyId;
+    }
+
     return Charge.paginate(filters, {
         page: query.page,
         limit: query.limit,

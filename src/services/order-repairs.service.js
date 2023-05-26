@@ -23,6 +23,10 @@ const getAll = query => {
         ];
     }
 
+    if (query.companyId) {
+        filters['companyId'] = query.companyId;
+    }
+
     if (query.status) {
         filters['status'] = {'$in': query.status};
     }

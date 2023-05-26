@@ -5,9 +5,7 @@ import brandsService from '../services/brands.service.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const brands = await brandsService.getAll(query);
+        const brands = await brandsService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(brands);
 

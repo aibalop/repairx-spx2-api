@@ -5,9 +5,7 @@ import customersService from '../services/customers.service.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const customers = await customersService.getAll(query);
+        const customers = await customersService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(customers);
 

@@ -6,9 +6,7 @@ import formatUtil from '../utils/format.util.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const orderRepairs = await orderRepairsService.getAll(query);
+        const orderRepairs = await orderRepairsService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(orderRepairs);
 

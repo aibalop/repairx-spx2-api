@@ -5,9 +5,7 @@ import worksService from '../services/works.service.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const works = await worksService.getAll(query);
+        const works = await worksService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(works);
 

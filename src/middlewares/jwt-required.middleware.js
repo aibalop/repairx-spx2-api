@@ -16,13 +16,28 @@ const jwtRequired = (req, res, next) => {
 
         req.payload = decode;
 
-        if (req.method === 'POST') {
-            req.body.createdBy = decode._id;
-            req.body.companyId = decode.companyId._id;
+        if (req.method === 'GET') {
+
+            req.query = req.query ?? { page: 1, limit: 10, searchText: '' };
+
+            if (!req.query.companyId) {
+                req.query.companyId = decode.companyId._id;
+            }
+
         }
 
-        if (req.method === 'PUT' || req.method === 'PATCH') {
-            req.body.updatedBy = decode._id;
+        if (req.method === 'POST' || req.method === 'PUT' || req.method === 'PATCH') {
+
+            if (req.method === 'POST') {
+                req.body.createdBy = decode._id;
+            } else {
+                req.body.updatedBy = decode._id;
+            }
+
+            if (!req.body.companyId) {
+                req.body.companyId = decode.companyId._id;
+            }
+
         }
 
         next();

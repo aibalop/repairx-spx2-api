@@ -5,9 +5,7 @@ import devicesService from '../services/devices.service.js';
 const getAll = async (req, res) => {
     try {
 
-        const query = req.query ?? { page: 1, limit: 10, searchText: '' };
-
-        const devices = await devicesService.getAll(query);
+        const devices = await devicesService.getAll(req.query);
 
         res.status(StatusCodes.OK).json(devices);
 

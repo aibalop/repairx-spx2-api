@@ -20,6 +20,10 @@ const getAll = query => {
         ];
     }
 
+    if (query.companyId) {
+        filters['companyId'] = query.companyId;
+    }
+
     return Work.paginate(filters, {
         page: query.page,
         limit: query.limit,

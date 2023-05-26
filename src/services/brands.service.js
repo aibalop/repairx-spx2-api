@@ -19,6 +19,10 @@ const getAll = query => {
         ];
     }
 
+    if (query.companyId) {
+        filters['companyId'] = query.companyId;
+    }
+
     return Brand.paginate(filters, {
         page: query.page,
         limit: query.limit,
