@@ -1,7 +1,8 @@
-import { StatusCodes } from "http-status-codes";
+import { StatusCodes } from 'http-status-codes';
 import dashboardService from '../services/dashboard.service.js';
 import { convertLocalDateToUTCDate } from '../utils/dates-helper.util.js';
 import { OrderRepairStatus } from '../utils/status.util.js';
+import mongoose from 'mongoose';
 
 const getSummary = async (req, res) => {
 
@@ -13,7 +14,11 @@ const getSummary = async (req, res) => {
             throw new Error('Datos de entrada incorrectos');
         }
 
-        const filters = {};
+        const filters = {
+            companyId: mongoose.Types.ObjectId(query.companyId),
+        };
+
+        console.log(filters);
 
         if (query.fromDate && query.toDate && query.timeZone) {
             const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));

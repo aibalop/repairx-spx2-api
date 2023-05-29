@@ -1,5 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import orderRepairsService from '../services/order-repairs.service.js';
+import companiesService from '../services/companies.service.js';
 import pdfUtil from '../utils/pdf.util.js';
 import formatUtil from '../utils/format.util.js';
 
@@ -56,6 +57,12 @@ const getOrderRepairPDF = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Orden Reparación no encontrado' });
         }
 
+        const company = await companiesService.getById(orderRepair.companyId);
+
+        if (!company) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Empresa no encontrada' });
+        }
+
         const data = orderRepair.toObject();
 
         data.devices = data.devices.map(device => {
@@ -68,6 +75,16 @@ const getOrderRepairPDF = async (req, res) => {
         data.totalAmount = formatUtil.getFormattedAmount(data.totalAmount);
         data.advanceAmount = formatUtil.getFormattedAmount(data.advanceAmount);
         data.remainingAmount = formatUtil.getFormattedAmount(data.remainingAmount);
+        data.company = {
+            name: company.name.toUpperCase(),
+            phone: formatUtil.getFormattedPhone(company.phone),
+            address: {
+                street: company.address.street,
+                num: `#${company.address.num}${company.address.interiorNum ? 'Int. #' + company.address.interiorNum : ''}`,
+                colony: `Col. ${company.address.colony}`,
+                zip: `CP. ${company.address.zip}`,
+            },
+        };
 
         const pdf = await pdfUtil.generatePDF('order-repair-created.html', data);
 

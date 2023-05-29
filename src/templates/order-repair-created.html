@@ -59,7 +59,7 @@
 <body>
 <table class="font-size-generic" style="width: 100%;">
     <tr>
-        <td class="bold" style="text-align: center; width: 33%;">RepairX</td>
+        <td class="bold" style="text-align: center; width: 33%; font-size: medium;">{{ company.name }}</td>
         <td class="bold" style="text-align: center; width: 33%;">ORDEN DE SERVICIO</td>
         <td style="text-align: center; width: 33%;">
             <span class="bold">Fecha</span><br>
@@ -157,7 +157,7 @@
 
 <table class="font-size-generic" style="width: 100%;">
     <tr>
-        <td class="bold" style="text-align: center; width: 33%;">RepairX</td>
+        <td class="bold" style="text-align: center; width: 33%; font-size: medium;">{{ company.name }}</td>
         <td class="bold" style="text-align: center; width: 33%;">ORDEN DE SERVICIO</td>
         <td style="text-align: center; width: 33%;">
             <span class="bold">Fecha</span><br>
@@ -233,8 +233,10 @@
         <span>* SIN NOTA NO SE APLICA GARANTIA.</span>
         <span>* LA GARANTIA INICIA DESDE QUE SE NOTIFICA LA REPARACION.</span>
         <span>* TODA REVISIÓN TIENE COSTO.</span>
-        <span class="bold">XXXXXX # xxx, COL. XXXXX</span>
-        <span class="bold ">TEL: XXX-XXX-XX-XX</span>
+        <span class="bold">
+            {{ company.address.street }} {{ company.address.num }} {{ company.address.colony }} {{ company.address.zip }}
+        </span>
+        <span class="bold ">TEL: {{ company.phone }}</span>
 
     </div>
 
