@@ -2,14 +2,14 @@ import express from 'express';
 import usersController from '../controllers/users.controller.js';
 import jwtRequired from '../middlewares/jwt-required.middleware.js';
 import validRequest from "../middlewares/valid-request.middleware.js";
-import { userSetValidators } from '../validators/users.validator.js';
+import { userSetValidators, userCompanySetValidators } from '../validators/users.validator.js';
 
 const router = express.Router();
 const resource = 'users';
 
 router.route(`/${resource}`)
     .get(jwtRequired, usersController.getAll)
-    .post(userSetValidators, validRequest, usersController.create);
+    .post(userCompanySetValidators, validRequest, usersController.create);
 
 router.route(`/${resource}/:_id`)
     .get(jwtRequired, usersController.getByid)

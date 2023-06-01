@@ -8,6 +8,7 @@ import devicesRoutes from './devices.routes.js';
 import brandsRoutes from './brands.routes.js';
 import orderRepairsRoutes from './order-repair.routes.js';
 import dashboardRoutes from './dashboard.routes.js';
+import companiesRoutes from './companies.routes.js';
 
 const router = express.Router();
 const version = 'v1';
@@ -22,5 +23,6 @@ router.use(prefix, devicesRoutes);
 router.use(prefix, brandsRoutes);
 router.use(prefix, orderRepairsRoutes);
 router.use(prefix, dashboardRoutes);
+router.use(prefix, companiesRoutes);
 
 export default router;

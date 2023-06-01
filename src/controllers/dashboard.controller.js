@@ -18,8 +18,6 @@ const getSummary = async (req, res) => {
             companyId: mongoose.Types.ObjectId(query.companyId),
         };
 
-        console.log(filters);
-
         if (query.fromDate && query.toDate && query.timeZone) {
             const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
             const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
