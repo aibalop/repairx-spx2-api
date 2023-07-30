@@ -1,5 +1,5 @@
 import OrderRepair from '../models/order-repair.model.js';
-import { convertLocalDateToUTCDate } from '../utils/dates-helper.util.js';
+import {convertLocalDateToUTCDate} from '../utils/dates-helper.util.js';
 import mongoose from 'mongoose';
 
 /**
@@ -9,104 +9,113 @@ import mongoose from 'mongoose';
  */
 const getAll = query => {
 
-  const filters = {};
+    const filters = {};
 
-  if (query.searchText) {
-    const invalid = /[°"§%()\[\]{}=\\?´`'#<>|,;.:+_-]+/g;
-    const cleanName = query.searchText.trim().replace(invalid, "");
-    filters['$or'] = [
-      { orderId: { $regex: new RegExp(cleanName), $options: 'i' } },
-      { 'customer.name': { $regex: new RegExp(cleanName), $options: 'i' } },
-      { 'customer.lastName': { $regex: new RegExp(cleanName), $options: 'i' } },
-      { 'customer.surName': { $regex: new RegExp(cleanName), $options: 'i' } },
-      { 'customer.phone': { $regex: new RegExp(cleanName), $options: 'i' } },
-      { 'customer.email': { $regex: new RegExp(cleanName), $options: 'i' } },
-    ];
-  }
+    if (query.searchText) {
+        const invalid = /[°"§%()\[\]{}=\\?´`'#<>|,;.:+_-]+/g;
+        const cleanName = query.searchText.trim().replace(invalid, "");
+        filters['$or'] = [
+            {orderId: {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.name': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.lastName': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.surName': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.phone': {$regex: new RegExp(cleanName), $options: 'i'}},
+            {'customer.email': {$regex: new RegExp(cleanName), $options: 'i'}},
+        ];
+    }
 
-  if (query.companyId) {
-    filters['companyId'] = query.companyId;
-  }
+    if (query.companyId) {
+        filters['companyId'] = query.companyId;
+    }
 
-  if (query.status) {
-    filters['status'] = { '$in': query.status };
-  }
+    if (query.status) {
+        filters['status'] = {'$in': query.status};
+    }
 
-  if (query.isPaid && query.isPaid !== 'both') {
-    filters['isPaid'] = query.isPaid === 'true';
-  }
+    if (query.isPaid && query.isPaid !== 'both') {
+        filters['isPaid'] = query.isPaid === 'true';
+    }
 
-  if (query.fromDate && query.toDate && query.timeZone) {
-    const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
-    const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
+    if (query.fromDate && query.toDate && query.timeZone) {
+        const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
+        const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
 
-    filters['createdAt'] = { $gte: fromDate.toISOString(), $lte: toDate.toISOString() };
-  }
+        filters['createdAt'] = {$gte: fromDate.toISOString(), $lte: toDate.toISOString()};
+    }
 
-  return OrderRepair.paginate(filters, {
-    page: query.page,
-    limit: query.limit,
-    sort: { createdAt: -1 },
-    customLabels: {
-      totalDocs: 'count',
-      docs: 'data',
-    },
-    populate: [
-      {
-        path: 'createdBy',
-        select: '_id name lastName',
-      },
-      {
-        path: 'updatedBy',
-        select: '_id name lastName',
-      },
-    ]
-  });
+    return OrderRepair.paginate(filters, {
+        page: query.page,
+        limit: query.limit,
+        sort: {createdAt: -1},
+        customLabels: {
+            totalDocs: 'count',
+            docs: 'data',
+        },
+        populate: [
+            {
+                path: 'createdBy',
+                select: '_id name lastName',
+            },
+            {
+                path: 'updatedBy',
+                select: '_id name lastName',
+            },
+        ]
+    });
 };
 
 /**
  * Get Report of all Order Repairs filters by a query
  * @param {object} query Object of params to use like filters
+ * @param {boolean} isResume flag to response with a resume format without details of orders
  * @returns {Promise<any>} A object response with the resume of orders
  */
-const getReport = query => {
+const getReport = (query, isResume = false) => {
 
-  const filters = {};
+    const filters = {};
 
-  if (query.companyId) {
-    filters['companyId'] = mongoose.Types.ObjectId(query.companyId);
-  }
-
-  if (query.status) {
-    filters['status'] = { '$in': query.status };
-  }
-
-  if (query.isPaid && query.isPaid !== 'both') {
-    filters['isPaid'] = query.isPaid === 'true';
-  }
-
-  if (query.fromDate && query.toDate && query.timeZone) {
-    const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
-    const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
-
-    filters['createdAt'] = { $gte: fromDate, $lte: toDate };
-  }
-
-  return OrderRepair.aggregate([
-    { $match: filters },
-    {
-      $group: {
-        _id: null,
-        totalAmount: { $sum: '$totalAmount' },
-        count: { $sum: 1 }
-      }
-    },
-    {
-      $project: {
-        _id: 0
-      },
+    if (query.companyId) {
+        filters['companyId'] = mongoose.Types.ObjectId(query.companyId);
     }
-  ]);
+
+    if (query.status) {
+        filters['status'] = {'$in': query.status};
+    }
+
+    if (query.isPaid && query.isPaid !== 'both') {
+        filters['isPaid'] = query.isPaid === 'true';
+    }
+
+    if (query.fromDate && query.toDate && query.timeZone) {
+        const fromDate = convertLocalDateToUTCDate(Number(query.fromDate), Number(query.timeZone));
+        const toDate = convertLocalDateToUTCDate(Number(query.toDate), Number(query.timeZone));
+
+        filters['createdAt'] = {$gte: fromDate, $lte: toDate};
+    }
+
+    if (isResume) {
+        return OrderRepair.aggregate([
+            {$match: filters},
+            {
+                $group: {
+                    _id: null,
+                    totalAmount: {$sum: '$totalAmount'},
+                    count: {$sum: 1}
+                }
+            },
+            {
+                $project: {
+                    _id: 0
+                },
+            }
+        ]);
+    }
+
+    return OrderRepair.aggregate([
+        {$match: filters},
+        {$sort: {createdAt: -1}}
+    ]);
+
 };
 
 /**
@@ -115,7 +124,7 @@ const getReport = query => {
  * @returns {Promise<OrderRepair>} Order Repair found
  */
 const getByOrderId = orderId => {
-  return OrderRepair.findOneWithDeleted({ orderId });
+    return OrderRepair.findOneWithDeleted({orderId});
 };
 
 /**
@@ -124,17 +133,17 @@ const getByOrderId = orderId => {
  * @returns {Promise<OrderRepair>} order repair found
  */
 const getById = _id => {
-  return OrderRepair.findById(_id)
-    .populate([
-      {
-        path: 'createdBy',
-        select: '_id name lastName'
-      },
-      {
-        path: 'updatedBy',
-        select: '_id name lastName'
-      },
-    ]);
+    return OrderRepair.findById(_id)
+        .populate([
+            {
+                path: 'createdBy',
+                select: '_id name lastName'
+            },
+            {
+                path: 'updatedBy',
+                select: '_id name lastName'
+            },
+        ]);
 };
 
 /**
@@ -143,8 +152,8 @@ const getById = _id => {
  * @returns {Promise<OrderRepair>} new prder repair created
  */
 const create = orderRepair => {
-  const newOrderRepair = new OrderRepair(orderRepair);
-  return newOrderRepair.save();
+    const newOrderRepair = new OrderRepair(orderRepair);
+    return newOrderRepair.save();
 };
 
 /**
@@ -156,7 +165,7 @@ const create = orderRepair => {
  * }>} object updated
  */
 const update = (_id, orderRepair) => {
-  return OrderRepair.updateOne({ _id }, { $set: orderRepair });
+    return OrderRepair.updateOne({_id}, {$set: orderRepair});
 };
 
 /**
@@ -169,8 +178,8 @@ const update = (_id, orderRepair) => {
  * }>} object updated
  */
 const updateStatusDevice = (_id, index, status) => {
-  const fieldToUpdate = `devices.${index}.status`;
-  return OrderRepair.updateOne({ _id, [fieldToUpdate]: { $exists: true } }, { $set: { [fieldToUpdate]: status } });
+    const fieldToUpdate = `devices.${index}.status`;
+    return OrderRepair.updateOne({_id, [fieldToUpdate]: {$exists: true}}, {$set: {[fieldToUpdate]: status}});
 };
 
 /**
@@ -180,16 +189,16 @@ const updateStatusDevice = (_id, index, status) => {
  * @returns {Promise<any>} object with deleted info
  */
 const destroy = (_id, userId) => {
-  return OrderRepair.delete({ _id }, userId);
+    return OrderRepair.delete({_id}, userId);
 };
 
 export default {
-  getAll,
-  getById,
-  getByOrderId,
-  getReport,
-  create,
-  update,
-  updateStatusDevice,
-  destroy,
+    getAll,
+    getById,
+    getByOrderId,
+    getReport,
+    create,
+    update,
+    updateStatusDevice,
+    destroy,
 };
